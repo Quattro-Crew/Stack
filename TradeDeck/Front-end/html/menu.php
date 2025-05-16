@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TradeDeck - Zacznij inwestować</title>
-    <link rel="stylesheet" href="/style-menu.css">
+    <link rel="stylesheet" href="css/style-menu.css">
 </head>
 <body>
 <header>
