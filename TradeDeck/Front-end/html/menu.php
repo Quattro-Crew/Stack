@@ -54,68 +54,77 @@
         </table>
     </section>
 
-    <section>
-        <h3>Polak więcej</h3>
-        <div class="additional-info">
-            <div class="info-column">
-                <h4>Przydatne informacje</h4>
-                <ul>
-                    <li>Korysów</li>
-                    <li>Nowa</li>
-                    <li>Sport</li>
-                    <li>Data</li>
-                    <li>Inwestor</li>
-                    <li>Górka</li>
-                    <li>Powiat 2014</li>
-                </ul>
-            </div>
+   <div class="footer1">
+        <h1>Przydatne informacje</h1>
+        <ul>
+            <li><a href="#">Kursy walut</a></li>
+            <li><a href="#">Pogoda</a></li>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#">Dieta</a></li>
+            <li><a href="#">Horoskop</a></li>
+            <li><a href="#">Oferta</a></li>
+            <li><a href="#">Powódź 2024</a></li>
+        </ul>
+        </div>
 
-            <div class="info-column">
-                <h4>Nazwa</h4>
-                <ul>
-                    <li>Czas</li>
-                    <li>Komputer</li>
-                    <li>Analogów</li>
-                    <li>Data programu</li>
-                    <li>System numeru</li>
-                    <li>Obsługa klienta</li>
-                </ul>
-            </div>
+        <div class="O_nas">
+            <h1>Nazwa</h1>
+            <ul>
+                <li><a href="#">O nas</a></li>
+                <li><a href="#">Kariera</a></li>
+                <li><a href="#">Aktualności</a></li>
+                <li><a href="#">Biuro prasowe</a></li>
+                <li><a href="#">System partnerski</a></li>
+                <li><a href="#">Obsługa klienta</a></li>   
+            </ul>
+        </div>
 
-            <div class="info-column">
-                <h4>Pomoc i kontakt</h4>
-                <ul>
-                    <li>Kontakt są wolne</li>
-                    <li>Nana pionista</li>
-                    <li>Telefon: 12399</li>
-                    <li>E-mail: 12399</li>
-                    <li>Pytorza internetu</li>
-                </ul>
+        <div class="Pomoc">
+            <h1>Pomoc i kontakt</h1>
+            <ul>
+                <li><a href="#">Kontaktuj się online</a></li>
+                <li><a href="#">Nasza placówka</a></li>
+                <li><a href="#">Telefon: 1 9999</a></li><p>24h / 7dni</p>
+                <li><a href="#">Pytania i odpowiedzi</a></li>
+            </ul>   
+        </div>
+
+        <div class="footer2">
+            <h1>Znajdziesz nas też na</h1>
+            <img class="facb" src="facebook.png" alt="">
+            <img class="facb" src="instagram.png" alt="">
+            <img class="facb" src="x-twitter-s.svg" alt="">
+            <img class="facb" src="youtube.png" alt="">
+
+            <div class="wersja">
+                <h2>Wersja językowa</h2>
+
+                <a href="#">PL</a>
+                <a href="#">EN</a>
+                <a href="#">ES</a>
             </div>
         </div>
 
-        <div class="signature">
-            <div class="signature-box">
-                <span>Podpisano na redni:</span>
-                <input type="checkbox" id="sign1">
-                <label for="sign1">X</label>
-            </div>
+        <div class="footer3">
+            <p>2024 &copy; Nazwa. Wszelkie prawa zastrzeżone.
+            Nazwa i logo są zarejestrowanymi znakami towarowymi.</p>
 
-            <div class="signature-box">
-                <span>Nazwisko pobierają:</span>
-                <input type="checkbox" id="sign2">
-                <label for="sign2">EL</label>
-                <input type="checkbox" id="sign3">
-                <label for="sign3">ES</label>
-            </div>
+            <p>Opłata za połączenie z infolinią wiadomości zgodna z taryfą danego operatora.
+            Słowniczek pojęć i definicji dotyczących usług reprezentatywnych, wynikających z rozporządzenia
+            <br>Ministra Rozwoju i Finansów z dnia 14 lipca 2017 r. w sprawie wykazu usług reprezentatywnych
+                powiązanych z rachunkiem płatniczym,
+            dostępny jest na stronie<br> strona.pl/PAD oraz w placówkach.</p>
+
         </div>
-    </section>
-</div>
 
-<footer>
-    <div class="container">
-        <p>2024 China's Worldwide International Forum logo as a supplementary to Japan's Eurovision.</p>
-    </div>
+        <div class="footer4">
+            <img src="logo_stopka.png" alt="">
+            <a href="#">Regulamin serwisu</a>
+            <a href="#">Polityka prywatności</a>
+            <a href="#">Polityka przetwarzania danych osobowych (RODO)</a>
+            <a href="#">Polityka cookies</a>
+        </div>
+
 </footer>
 </body>
 </html>
