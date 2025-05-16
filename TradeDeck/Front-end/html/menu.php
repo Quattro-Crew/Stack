@@ -7,12 +7,27 @@
     <link rel="stylesheet" href="css/style-menu.css">
 </head>
 <body>
-<header>
-    <div class="container">
-        <h1>Zacznij inwestować dzięki TradeDeck</h1>
-        <p>U nas znajdziesz artykuły edukacyjne, fiszki słownika giełdy oraz szlála: wiesi</p>
-    </div>
-</header>
+ <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="icons/logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Strona główna</a></li>
+                <li><a href="#">Jak zacząć inwestować</a></li>
+                <li><a href="#">Analiza kursów</a></li>
+            </ul>
+            <div class="login-button">
+                <a href="#">Zaloguj</a>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-overlay">
+                <h1 class="hero-text">Zacznij inwestować z TradeDeck</h1>
+            </div>
+        </div>
+    </header>
 
 <div class="container">
     <section class="about-us">
