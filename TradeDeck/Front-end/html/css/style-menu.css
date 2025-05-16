@@ -70,7 +70,7 @@ body {
 .hero {
     position: relative;
     height: 400px;
-    background: url('header.jpg') no-repeat center center/cover;
+    background: url('img/header.jpg') no-repeat center center/cover;
 }
 
 .hero-overlay {
@@ -303,7 +303,7 @@ padding-top: 25px;
     height: 30px;
     float: left;
     padding-left: 25px;
-    border-radius: 1px gray solid;
+    border-radius: 1px;
     margin-top: 58px;
 }
 
