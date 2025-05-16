@@ -26,7 +26,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
+    background-color: #1a3030;
     padding: 10px 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -43,7 +43,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #0056b3;
+    color: #eae7e7;
     font-weight: bold;
     font-size: 16px;
 }
@@ -53,10 +53,10 @@ body {
 }
 
 .login-button a {
-    background-color: #0056b3;
-    color: white;
+    background-color: #759686;
+    color: #1a3030;
     padding: 8px 16px;
-    border-radius: 5px;
+    border-radius: 20px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s;
@@ -66,7 +66,6 @@ body {
     background-color: #004099;
 }
 
-/* Sekcja z obrazem w tle */
 .hero {
     position: relative;
     height: 400px;
@@ -79,21 +78,30 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0, 19, 0, 0.5), rgba(0,0,0,0));
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(to right, rgb(51, 84, 84), rgba(0, 19, 0, 0), rgba(0,0,0,0));
+    display: block;
+    justify-content: left;
 }
 
 .hero-text {
     color: white;
-    font-size: 2.8rem;
+    font-size: 65px;
     font-weight: bold;
     transform: translateX(-5%);
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    margin-top: 3%;
+    margin-left: 18%;
+}
+.hero-text2 {
+    color: white;
+    font-size: 18px;
+    transform: translateX(-5%);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    margin-top: 1%;
+    margin-left: 18%;
 }
 
-/* Sekcje */
+
 section {
     background-color: white;
     border-radius: 8px;

@@ -10,7 +10,7 @@
  <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="icons/logo.png" alt="Logo">
+                <img src="css/img/TradeDeck-Logo.png" alt="Logo">
             </div>
             <ul class="nav-links">
                 <li><a href="#">Strona główna</a></li>
@@ -24,7 +24,10 @@
 
         <div class="hero">
             <div class="hero-overlay">
-                <h1 class="hero-text">Zacznij inwestować z TradeDeck</h1>
+                <h1 class="hero-text">Zacznij inwestować
+                    <br>dzięki TradeDeck</h1>
+                <h5 class="hero-text2" >U nas znajdziesz artykuły edukacyjne,
+                    <br>fiszki słownika giełdy oraz wiele więcej</h5>
             </div>
         </div>
     </header>
