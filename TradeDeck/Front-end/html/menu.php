@@ -34,17 +34,26 @@
 
 <div class="container">
     <section class="about-us">
-        <h2>O nas</h2>
+      <h2 class="about-us-text">O nas</h2>
+      <div class="about-us-description">
         <p><strong>Witaj na TradeDeck!</strong><br>Twoje miejsce do nauki i rozwoju inwestycyjnego.</p>
 
-        <p>Z TradeDeck zyskujesz:</p>
-        <ul>
-            <li>Wiedzę i praktyczne narzędzia</li>
-            <li>Lepsze decyzje inwestycyjne</li>
-            <li>Wsparcie na każdym etapie</li>
-        </ul>
+        <div class="about-us-content">
+          <div class="about-us-text-content">
+            <p>Z TradeDeck zyskujesz:</p>
+            <ul>
+              <li>Wiedzę i praktyczne narzędzia</li>
+              <li>Lepsze decyzje inwestycyjne</li>
+              <li>Wsparcie na każdym etapie</li>
+            </ul>
+            <p>Dla początkujących i doświadczonych. Inwestuj pewnie!</p>
+          </div>
 
-        <p>Dla początkujących i doświadczonych. Inwestuj pewnie!</p>
+          <div class="about-us-img">
+            <img src="css/img/about-us-img.png" alt="O nas">
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>

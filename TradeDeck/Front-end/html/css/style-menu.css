@@ -103,7 +103,7 @@ body {
 
 
 section {
-    background-color: white;
+    background-color: #efefef;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 30px;
@@ -132,7 +132,16 @@ h4 {
 
 /* Sekcja "O nas" */
 .about-us {
-    background-color: #f0f8ff;
+    background-color: #efefef;
+}
+
+.about-us-text{
+    color: #1a3030;
+    margin-left: 3%;
+}
+
+.about-us-description {
+    margin-left: 4%;
 }
 
 .about-us ul {
@@ -143,6 +152,29 @@ h4 {
 .about-us li {
     margin-bottom: 8px;
 }
+
+.about-us-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.about-us-text-content {
+    flex: 1;
+}
+
+.about-us-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-us-img {
+    flex: 0 0 50%; /* zajmuje 40% szerokości */
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 /* Sekcja "Nasze narzędzia" */
 .tools {
