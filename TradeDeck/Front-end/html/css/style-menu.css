@@ -139,8 +139,6 @@ h4 {
 .footer1{
     height: 450px;
     background-color: RGB(49, 50, 55);
-    margin-left: 15px;
-    margin-right: 15px;
     margin-top: 90px;
 }
 .footer1 h1{
@@ -195,7 +193,7 @@ font-size: 18px;
 margin-top: 55px;
 }
 .Pomoc{
-height: 300px;
+height: 320px;
 width: 250px;
 position: absolute;
 background-color: white;
@@ -232,8 +230,6 @@ padding-top: 25px;
 .footer2{
     height: 150px;
     background-color: RGB(41, 42, 46);
-    margin-right: 15px;
-    margin-left: 15px;
 }
 .footer2 h1{
     float: left;
@@ -281,8 +277,6 @@ padding-top: 25px;
 .footer3{
     height: 250px;
     background-color: RGB(41, 42, 46);
-    margin-right: 15px;
-    margin-left: 15px;
     border-top: 1px solid RGB(69, 70, 75);
     border-bottom: 1px solid RGB(69, 70, 75);
 }
@@ -294,8 +288,6 @@ padding-top: 25px;
 .footer4{
     height: 90px;
     background-color: RGB(41, 42, 46);
-    margin-right: 15px;
-    margin-left: 15px;
 }
 .footer4 img{
     height: 70px;

@@ -53,6 +53,7 @@
             </tr>
         </table>
     </section>
+</div>
 
    <div class="footer1">
         <h1>Przydatne informacje</h1>
@@ -91,10 +92,10 @@
 
         <div class="footer2">
             <h1>Znajdziesz nas też na</h1>
-            <img class="facb" src="facebook.png" alt="">
-            <img class="facb" src="instagram.png" alt="">
-            <img class="facb" src="x-twitter-s.svg" alt="">
-            <img class="facb" src="youtube.png" alt="">
+            <img class="facb" src="icons/facebook.png" alt="">
+            <img class="facb" src="icons/instagram.png" alt="">
+            <img class="facb" src="icons/x-twitter-s.svg" alt="">
+            <img class="facb" src="icons/youtube.png" alt="">
 
             <div class="wersja">
                 <h2>Wersja językowa</h2>
