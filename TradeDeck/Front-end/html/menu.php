@@ -56,29 +56,42 @@
       </div>
     </section>
 
-    <section>
-        <h2>Dlaczego my?</h2>
-        <!-- Tutaj można dodać treść -->
+    <section class="dark-section">
+            <h2>Dlaczego my?</h2>
+            <!-- Tutaj można dodać treść -->
     </section>
 
     <section class="tools">
         <h2>Nasze narzędzia</h2>
-        <table class="tools-table">
-            <tr>
-                <td>
-                    <h3>Artykuły edukacyjne</h3>
-                    <p>Krótkie info</p>
-                </td>
-                <td>
-                    <h3>Fiszki słownika giełdy</h3>
-                    <p>Krótkie info</p>
-                </td>
-                <td>
-                    <h3>Symulator giełdy</h3>
-                    <p>Krótkie info</p>
-                </td>
-            </tr>
-        </table>
+        <div class="cards">
+            <div class="card">
+                <div class="card-top">
+                    <span>Top</span>
+                </div>
+                <div class="card-bottom">
+                    <span>bottom</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <span>Top</span>
+                </div>
+                <div class="card-bottom">
+                    <span>bottom</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <span>Top</span>
+                </div>
+                <div class="card-bottom">
+                    <span>bottom</span>
+                </div>
+            </div>
+        </div>
+
     </section>
 </div>
 
