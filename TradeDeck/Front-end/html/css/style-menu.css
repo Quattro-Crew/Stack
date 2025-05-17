@@ -120,6 +120,10 @@ section.dark-section {
     background-color: #1a3030 !important;
     color: white;
 }
+section.dark-section h2{
+    margin-left: 3%;
+    font-size: 40px;
+}
 
 h3 {
     color: #333;
@@ -197,6 +201,8 @@ h3 {
 .tools h2 {
     color: #1a3030;
     margin-left: 3%;
+    margin-left: 3%;
+    font-size: 40px;
 }
 
 .cards {
@@ -314,8 +320,8 @@ h3 {
 
 .Pomoc {
     position: absolute;
-    background-color: white;
-    color: black;
+    background-color: #233737;
+    color: whitesmoke;
     width: 250px;
     margin-left: 1000px;
     margin-top: -390px;
@@ -339,7 +345,7 @@ h3 {
 
 .Pomoc a {
     text-decoration: none;
-    color: black;
+    color: #efeeee;
 }
 
 .Pomoc a:hover {
@@ -432,6 +438,7 @@ h3 {
 .footer4 img {
     height: 70px;
     margin-right: 40px;
+    margin-left: 2%;
 }
 
 .footer4 a {
