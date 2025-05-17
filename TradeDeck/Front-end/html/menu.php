@@ -75,10 +75,10 @@
             </div>
 
             <div class="card">
-                <div class="card-top">
+                <div class="card-top2">
                     <span>Fiszki słownika<br>giełdy</span>
                 </div>
-                <div class="card-bottom">
+                <div class="card-bottom2">
                     <span>bottom</span>
                 </div>
             </div>
