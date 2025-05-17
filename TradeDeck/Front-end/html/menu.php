@@ -67,7 +67,7 @@
         <div class="cards">
             <div class="card">
                 <div class="card-top">
-                    <span>Top</span>
+                    <span>Artykuły<br>edukacyjne</span>
                 </div>
                 <div class="card-bottom">
                     <span>bottom</span>
@@ -76,7 +76,7 @@
 
             <div class="card">
                 <div class="card-top">
-                    <span>Top</span>
+                    <span>Fiszki słownika<br>giełdy</span>
                 </div>
                 <div class="card-bottom">
                     <span>bottom</span>
@@ -85,7 +85,7 @@
 
             <div class="card">
                 <div class="card-top">
-                    <span>Top</span>
+                    <span>Symulator<br>giełdy</span>
                 </div>
                 <div class="card-bottom">
                     <span>bottom</span>
