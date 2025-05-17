@@ -1,3 +1,6 @@
+/* ================================
+   RESET I PODSTAWOWE STYLE GLOBALNE
+=================================== */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +20,9 @@ body {
     padding: 20px;
 }
 
-/* Pasek nawigacyjny */
+/* ================================
+   NAVIGACJA GŁÓWNA
+=================================== */
 .navbar {
     position: sticky;
     top: 0;
@@ -31,13 +36,14 @@ body {
 }
 
 .logo img {
-    height: 40px;
+    height: 38px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 40px;
+    margin-right: 8%;
 }
 
 .nav-links a {
@@ -65,7 +71,9 @@ body {
     background-color: #00996b;
 }
 
-/* Hero section */
+/* ================================
+   HERO SECTION
+=================================== */
 .hero {
     position: relative;
     height: 400px;
@@ -74,13 +82,8 @@ body {
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: linear-gradient(to right, rgb(51, 84, 84), rgba(0, 19, 0, 0), rgba(0, 0, 0, 0));
-    display: block;
-    justify-content: left;
 }
 
 .hero-text {
@@ -102,11 +105,9 @@ body {
     margin-left: 18%;
 }
 
-section.dark-section {
-    background-color: #1a3030 !important; /* Wymuszenie ciemnego koloru */
-    color: white;
-}
-
+/* ================================
+   SEKCJE OGÓLNE
+=================================== */
 section {
     background-color: #efefef;
     border-radius: 8px;
@@ -115,13 +116,27 @@ section {
     margin-bottom: 30px;
 }
 
+section.dark-section {
+    background-color: #1a3030 !important;
+    color: white;
+}
+
 h3 {
     color: #333;
     margin: 20px 0 15px;
     font-size: 1.4rem;
 }
 
-/* Sekcja "O nas" */
+.line {
+    width: 95%;
+    height: 7px;
+    background-color: #759686;
+    margin-left: 3%;
+}
+
+/* ================================
+   SEKCJA "O NAS"
+=================================== */
 .about-us-text {
     color: #1a3030;
     margin-left: 3%;
@@ -145,6 +160,11 @@ h3 {
     margin-left: 4%;
 }
 
+.about-us-icons {
+    width: 20px;
+    height: 20px;
+}
+
 .about-us-content {
     display: flex;
     justify-content: space-between;
@@ -162,24 +182,14 @@ h3 {
     justify-content: flex-end;
 }
 
-.about-us-icons{
-    width: 20px;
-    height: 20px;
-}
-
 .about-us-img img {
     width: 80%;
     height: auto;
 }
 
-.line {
-     width: 95%;
-     height: 7px;
-     background-color: #759686;
-     margin-left: 3%;
- }
-
-/* Sekcja "Nasze narzędzia" */
+/* ================================
+   SEKCJA "NASZE NARZĘDZIA"
+=================================== */
 .tools {
     text-align: left;
 }
@@ -189,31 +199,26 @@ h3 {
     margin-left: 3%;
 }
 
-.cards{
-    display: flex;              /* Ustawia elementy w linii */
-    justify-content: center;    /* Wyśrodkowanie poziome */
-    align-items: center;        /* Wyśrodkowanie pionowe */
-    gap: 10%;                  /* Odstępy między kartami */
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
     padding: 20px;
     flex-wrap: wrap;
 }
+
 .card {
     --primary-clr: #1a3030;
     --play: #759686;
     width: 250px;
     height: 300px;
     border-radius: 10px;
-    font-family: "Arial";
     color: #fff;
     display: grid;
     cursor: pointer;
     grid-template-rows: 70px 1fr;
-
-}
-
-.card:hover .card-bottom {
-    transform: translateY(-1em);
-
+    font-family: "Arial";
 }
 
 .card-top {
@@ -228,16 +233,20 @@ h3 {
 .card-bottom {
     border-radius: 0 0 10px 10px;
     padding: 15px;
-    position: relative;
-    display: grid;
-    gap: 10px;
     background: var(--primary-clr);
     transition: transform 0.4s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    display: grid;
+    gap: 10px;
 }
 
+.card:hover .card-bottom {
+    transform: translateY(-1em);
+}
 
-/* Stopka 1 - Przydatne informacje */
+/* ================================
+   STOPKA 1 - PRZYDATNE LINKI
+=================================== */
 .footer1 {
     height: 450px;
     background-color: #313237;
@@ -271,7 +280,9 @@ h3 {
     text-decoration: underline;
 }
 
-/* O nas - kolumna */
+/* ================================
+   STOPKA 2 - O NAS / POMOC
+=================================== */
 .O_nas {
     position: absolute;
     top: 0;
@@ -301,7 +312,6 @@ h3 {
     font-size: 18px;
 }
 
-/* Pomoc */
 .Pomoc {
     position: absolute;
     background-color: white;
@@ -341,7 +351,9 @@ h3 {
     padding-left: 25px;
 }
 
-/* Stopka 2 - Social + Języki */
+/* ================================
+   STOPKA 3 - SOCIAL + JĘZYK
+=================================== */
 .footer2 {
     background-color: #292a2e;
     height: 150px;
@@ -390,7 +402,9 @@ h3 {
     border-radius: 5px;
 }
 
-/* Stopka 3 - Informacje prawne */
+/* ================================
+   STOPKA 4 - INFORMACJE PRAWNE
+=================================== */
 .footer3 {
     height: 250px;
     background-color: #292a2e;
@@ -404,7 +418,9 @@ h3 {
     margin-bottom: 15px;
 }
 
-/* Stopka 4 - Logo + Linki */
+/* ================================
+   STOPKA 5 - LOGO + LINKI
+=================================== */
 .footer4 {
     height: 90px;
     background-color: #292a2e;
@@ -428,10 +444,13 @@ h3 {
     text-decoration: underline;
 }
 
+/* ================================
+   PRZYCISK CHATBOTA
+=================================== */
 .chatbot-button {
     --background: linear-gradient(45deg, #408762, #12400c);
     position: fixed;
-    bottom: 25px; /* ← zmienione z top: na bottom: */
+    bottom: 25px;
     right: 40px;
     background: var(--background);
     cursor: pointer;
