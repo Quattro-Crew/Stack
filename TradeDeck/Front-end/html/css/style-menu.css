@@ -115,14 +115,6 @@ section {
     margin-bottom: 30px;
 }
 
-h2 {
-    color: #0056b3;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
 h3 {
     color: #333;
     margin: 20px 0 15px;
@@ -133,10 +125,14 @@ h3 {
 .about-us-text {
     color: #1a3030;
     margin-left: 3%;
+    font-size: 40px;
 }
 
 .about-us-description {
+    font-size: 20px;
     margin-left: 4%;
+    margin-top: 6%;
+    margin-bottom: 4%;
 }
 
 .about-us ul {
@@ -146,6 +142,7 @@ h3 {
 
 .about-us li {
     margin-bottom: 8px;
+    margin-left: 4%;
 }
 
 .about-us-content {
@@ -165,14 +162,31 @@ h3 {
     justify-content: flex-end;
 }
 
+.about-us-icons{
+    width: 20px;
+    height: 20px;
+}
+
 .about-us-img img {
-    max-width: 100%;
+    width: 80%;
     height: auto;
 }
 
+.line {
+     width: 95%;
+     height: 7px;
+     background-color: #759686;
+     margin-left: 3%;
+ }
+
 /* Sekcja "Nasze narzędzia" */
 .tools {
-    text-align: center;
+    text-align: left;
+}
+
+.tools h2 {
+    color: #1a3030;
+    margin-left: 3%;
 }
 
 .cards{
@@ -412,4 +426,67 @@ h3 {
 
 .footer4 a:hover {
     text-decoration: underline;
+}
+
+.chatbot-button {
+    --background: linear-gradient(45deg, #408762, #12400c);
+    position: fixed;
+    bottom: 25px; /* ← zmienione z top: na bottom: */
+    right: 40px;
+    background: var(--background);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 20px;
+    padding: 0.7em 1.8em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    animation: moveUpDown 2s infinite ease-in-out;
+    z-index: 1000;
+}
+
+@keyframes moveUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+.tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    transform-origin: bottom;
+    padding: 0.3em 0.6em;
+    opacity: 0;
+    font-size: 17px;
+    pointer-events: none;
+    transition: all 0.3s;
+    background: var(--background);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.tooltip::before {
+    position: absolute;
+    content: "";
+    height: 0.6em;
+    width: 0.6em;
+    bottom: -0.2em;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    background: var(--background);
+}
+
+.chatbot-button:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) scale(1);
+}
+
+.chatbot-button:hover {
+    transform: scale(0.9) translateY(10px);
 }

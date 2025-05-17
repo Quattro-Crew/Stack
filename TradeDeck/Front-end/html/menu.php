@@ -35,34 +35,35 @@
 <div class="container">
     <section class="about-us">
       <h2 class="about-us-text">O nas</h2>
-      <div class="about-us-description">
-        <p><strong>Witaj na TradeDeck!</strong><br>Twoje miejsce do nauki i rozwoju inwestycyjnego.</p>
-
-        <div class="about-us-content">
-          <div class="about-us-text-content">
-            <p>Z TradeDeck zyskujesz:</p>
-            <ul>
-              <li>Wiedzę i praktyczne narzędzia</li>
-              <li>Lepsze decyzje inwestycyjne</li>
-              <li>Wsparcie na każdym etapie</li>
-            </ul>
-            <p>Dla początkujących i doświadczonych. Inwestuj pewnie!</p>
-          </div>
-
-          <div class="about-us-img">
-            <img src="css/img/about-us-img.png" alt="O nas">
-          </div>
+        <div class="line"></div>
+      <div class="about-us-content">
+          <div class="about-us-description">
+             <p><strong>Witaj na TradeDeck!</strong><br>Twoje miejsce do nauki i rozwoju inwestycyjnego.</p>
+              <div class="about-us-text-content">
+                <p>Z TradeDeck zyskujesz:</p>
+                <ul>
+                  <li><img class="about-us-icons" src="css/img/brain.svg">  Wiedzę i praktyczne narzędzia</li>
+                  <li><img class="about-us-icons" src="css/img/chart.svg">  Lepsze decyzje inwestycyjne</li>
+                  <li><img class="about-us-icons" src="css/img/hand.svg">  Wsparcie na każdym etapie</li>
+                </ul>
+                <p>Dla początkujących i doświadczonych. Inwestuj pewnie!</p>
+              </div>
         </div>
+          <div class="about-us-img">
+              <img src="css/img/about-us-img.png" alt="O nas">
+          </div>
       </div>
     </section>
 
     <section class="dark-section">
             <h2>Dlaczego my?</h2>
+        <div class="line"></div>
             <!-- Tutaj można dodać treść -->
     </section>
 
     <section class="tools">
         <h2>Nasze narzędzia</h2>
+        <div class="line"></div>
         <div class="cards">
             <div class="card">
                 <div class="card-top">
@@ -167,5 +168,11 @@
         </div>
 
 </footer>
+
+ <div class="chatbot-button">
+     <span class="tooltip">Zapytaj nasze AI o pomoc!</span>
+     <span class="text">ChatBot</span>
+ </div>
+
 </body>
 </html>
