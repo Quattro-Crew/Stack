@@ -218,9 +218,9 @@ h3 {
     box-shadow: 0px 0px 20px -5px #000;
 }
 
-      /* ================================
-         STOPKA 1 - PRZYDATNE LINKI
-      =================================== */
+/* ================================
+   STOPKA 1 - PRZYDATNE LINKI
+=================================== */
 .footer1 {
     height: 450px;
     background-color: #313237;
@@ -418,6 +418,7 @@ h3 {
 .footer4 a:hover {
     text-decoration: underline;
 }
+
 
 /* ================================
    PRZYCISK CHATBOTA
