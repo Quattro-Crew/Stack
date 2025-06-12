@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czat z asystentem</title>
+    <link rel="stylesheet" href="chatIndex.css"/>
+</head>
+<body>
+    <div class="container">
+        <div id="history" class="history"></div>
+        <div class="input1">
+            <input type="text" id="input2" placeholder="Napisz wiadomość..."/>
+            <button onclick="sendMessage()">Wyślij</button>
+        </div>
+    </div>
+    <script>
+        const chatHistory = document.getElementById("history");
+        const userInput = document.getElementById("input2");
+
+        function sendMessage() {
+            const text = userInput.value.trim();
+            if (text === "") return;
+
+            appendMessage("user", text);
+            userInput.value = "";
+
+            fetch("http://127.0.0.1:5000/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({message: text})
+            })
+            .then(Response => {
+                if (!response.ok) {
+                    throw new Error("Błąd odpowiedzi serwera");
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.reply) {
+                    appendMessage("bot", data.reply);
+                } else {
+                    appendMessage("bot", "Brak odpowiedzi od serwera");
+                }
+            })
+            .catch(err => {
+                appendMessage("bot", "Błąd połączenia z serwerem.");
+                console.error("Błąd fetch:", err);
+            });
+        }
+
+        function appendMessage(sender, text) {
+            const msg = document.createElement("div");
+            msg.classList.add("message", sender);
+            msg.textContent = text;
+            chatHistory.appendChild(msg);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        userInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
