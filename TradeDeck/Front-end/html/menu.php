@@ -230,12 +230,163 @@ session_start();
                 });
             </script>
 
-            
+             <div id="registerModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeRegisterModal">&times;</span>
+                    <h2>Rejestracja</h2>
+                    <form id="registerForm" action="register.php" method="post">
+                        <input type="text" name="username" placeholder="Login" required>
+                        <input type="email" name="email" placeholder="Adres e-mail" required>
+                        <input type="password" name="password" placeholder="Hasło" required id="password">                   
+
+                            <label for="password">
+                                <span class="toggle-password" onclick="togglePassword()">
+                                    <i class="fa-solid fa-eye"></i>
+                                </span>
+                            </label>
+
+                        <script>
+                            function togglePassword() {
+                            const passwordField = document.getElementById("password");
+                            const type = passwordField.type === "password" ? "text" : "password";
+                            passwordField.type = type;
+                            }
+                        </script>
+
+                        <input type="password" name="password_confirm" placeholder="Powtórz hasło" required id="password_confirm">
+                            <label for="password_confirm">
+                                <span class="toggle-confirm_password" onclick="togglePasswordConfirm()">
+                                    <i class="fa-solid fa-eye"></i>
+                                </span>
+                            </label>
+
+                        <script>
+                            function togglePasswordConfirm() {
+                            const passwordField = document.getElementById("password_confirm");
+                            const type = passwordField.type === "password" ? "text" : "password";
+                            passwordField.type = type;
+                            }
+                        </script>
+
+                        <div></div>
+                        <progress max="100" value="0" id="meter"></progress>
+                        <div class="textbox">Siła hasła</div>
+                        <button type="submit">Zarejestruj się</button>
+                    </form>                   
+
+                    <script>
+                        var code = document.getElementById("password");
+
+                        var strengthbar = document.getElementById("meter");
+                        var display = document.getElementsByClassName("textbox")[0];
+
+                        code.addEventListener("keyup", function() {
+                            checkpassword(code.value);
+                        });
+
+                        function checkpassword(password) {
+                            var strength = 0;
+                            if (password.match(/[a-z]+/)) {
+                                strength += 1;
+                            }
+                            if (password.match(/[A-Z]+/)) {
+                                strength += 1;
+                            }
+                            if (password.match(/[0-9]+/)) {
+                                strength += 1;
+                            }
+                            if (password.match(/[$@#&!]+/)) {
+                                strength += 1;
+                            }
+
+                            if (password.length < 12){
+                                display.innerHTML="Minimalna liczba znaków to 12";
+                            }
+
+                            if (password.length > 128){
+                                display.innerHTML="Maksymalna liczba znaków to 128";
+                            }
+
+                        switch (strength) {
+                            case 0:
+                                strengthbar.value = 0;
+                                break;
+
+                            case 1:
+                                strengthbar.value = 25;
+                                break;
+
+                            case 2:
+                                strengthbar.value = 50;
+                                break;
+
+                            case 3:
+                                strengthbar.value = 75;
+                                break;
+
+                            case 4:
+                                strengthbar.value = 100;
+                                break;
+                            }
+                        }
+                        </script>
+
+                </div>
+        </div>
+
+        <div class="rejestracja">
+            <div class="head">    
+                <img class="lock" src="lock-solid.svg" alt="">
+            </div>
+
+                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <div id="welcome">
+             
+                    <a href="logout.php" id="logoutButton">Wyloguj się</a>
+                </div>
+
             <div class="login-button">
                 <?php else: ?>
                 <a href="#" id="loginLink">Zaloguj się</a>
                 <?php endif; ?>
             </div>
+
+             <div id="loginModal" class="modal">
+            <div class="modal-content">
+
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Logowanie</h2>
+
+            <form id="loginForm" action="login.php" method="post">
+                <input type="text" name="username" placeholder="Login" required>
+                <input type="password" name="password" placeholder="Hasło" required>
+                <div id="recaptcha-container"></div>
+                
+
+                <button type="submit">Zaloguj się</button>
+                <button type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
+            </form>
+
+            </div>
+            </div>
+
+            <div id="forgotPasswordModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeForgotPasswordModal">&times;</span>
+                    <h2>Zapomniałem hasła</h2>
+                    <form id="forgotPasswordForm" action="send_reset_link.php" method="post">
+                        <input type="email" name="email" placeholder="Adres e-mail" required>
+                        <button type="submit">Wyślij link do resetowania hasła</button>
+                    </form>
+                </div>
+            </div>           
+
+        </div>
+
+        <script>
+            // modal ukrycie contentu
+        </script>
+
         </nav>
 
         <div class="hero">
