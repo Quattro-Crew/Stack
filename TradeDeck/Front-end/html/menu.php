@@ -384,8 +384,65 @@ session_start();
         </div>
 
         <script>
-            // modal ukrycie contentu
-        </script>
+            const loginLink = document.getElementById('loginLink');
+            const loginModal = document.getElementById('loginModal');
+            const closeModal = document.getElementById('closeModal');
+            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+            const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+            const closeForgotPasswordModal = document.getElementById('closeForgotPasswordModal');
+            const content = document.getElementById('content');
+            const welcome = document.getElementById('welcome');
+            const compareLink = document.querySelector('.shared_chart a');
+            const mustBeLoggedInModal = document.getElementById('mustBeLoggedInModal');
+            const closeMustBeLoggedInModal = document.getElementById('closeMustBeLoggedInModal');
+            
+            // Pokaż modal logowania i ukryj content
+            if (loginLink) {
+                loginLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    loginModal.style.display = 'flex';
+                    content.style.display = 'none';
+                });
+            }
+
+            if (forgotPasswordLink) {
+                forgotPasswordLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    forgotPasswordModal.style.display = 'flex';
+                    content.style.display = 'none';                   
+                });
+            }
+
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    loginModal.style.display = 'none';
+                    content.style.display = 'flex';
+                });
+            }
+
+            if (closeForgotPasswordModal) {
+                closeForgotPasswordModal.addEventListener('click', () => {
+                    forgotPasswordModal.style.display = 'none';
+                    loginModal.style.display = 'none';
+                    content.style.display = 'flex';
+                });
+            }
+
+            <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+                    if (compareLink) {
+                        compareLink.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            mustBeLoggedInModal.style.display = 'flex';
+                        });
+                    }
+                <?php endif; ?>
+
+                if (closeMustBeLoggedInModal) {
+                    closeMustBeLoggedInModal.addEventListener('click', () => {
+                        mustBeLoggedInModal.style.display = 'none';
+                    });
+                }
+    </script>
 
         </nav>
 
