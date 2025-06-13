@@ -44,6 +44,29 @@ session_start();
                     alert('Wystąpił nieznany błąd podczas rejestracji.');
             }
         }
+
+        // logowanie
+        const loginerror = urlParams.get('login_error');
+
+            if (loginerror) {
+                switch (loginerror) {
+                    case 'empty':
+                        alert('Wszystkie pola są wymagane!');
+                        break;
+                    case 'invalid':
+                        alert('Niepoprawna nazwa użytkownika lub hasło.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera. Spróbuj ponownie później.');
+                        break;
+                    case 'invalid_request':
+                        alert('Nieprawidłowe żądanie.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd.');
+                }
+            }
+
 </script>
 
 <body>
