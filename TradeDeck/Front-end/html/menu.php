@@ -6,6 +6,46 @@
     <title>TradeDeck - Zacznij inwestować</title>
     <link rel="stylesheet" href="css/style-menu.css">
 </head>
+
+<?php
+session_start();
+?>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // rejestracja
+            const urlParams = new URLSearchParams(window.location.search);
+            const registerError = urlParams.get('register_error');
+
+            if (registerError) {
+            switch (registerError) {
+                case 'empty':
+                    alert('Wszystkie pola są wymagane przy rejestracji!');
+                    break;
+                case 'user_or_email_exists':
+                    alert('Nazwa lub adres E-mail już jest zajęty.');
+                    break;
+                case 'weak_password':
+                    alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128.');
+                    break;
+                case 'password_mismatch':
+                    alert('Hasła nie są zgodne. Wpisz ponownie.');
+                    break;
+                case 'server':
+                    alert('Wystąpił błąd serwera podczas rejestracji. Spróbuj ponownie później.');
+                    break;
+                case 'invalid_request':
+                    alert('Nieprawidłowe żądanie rejestracji.');
+                    break;
+                case 'invalid_email':
+                    alert('Niepoprawny adres E-mail.');
+                    break;
+                default:
+                    alert('Wystąpił nieznany błąd podczas rejestracji.');
+            }
+        }
+</script>
+
 <body>
  <header>
         <nav class="navbar">
