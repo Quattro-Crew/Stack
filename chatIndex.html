@@ -15,6 +15,8 @@
         </div>
     </div>
     <script>
+        fetch("chatbot_start.php");
+
         const chatHistory = document.getElementById("history");
         const userInput = document.getElementById("input2");
 
@@ -63,6 +65,10 @@
             if (e.key === "Enter") {
                 sendMessage();
             }
+        });
+
+        window.addEventListener("beforeunload", function() {
+            navigator.sendBeacon("chatbot_stop.php");
         });
     </script>
 </body>
