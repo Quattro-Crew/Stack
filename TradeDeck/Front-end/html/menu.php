@@ -179,7 +179,7 @@ session_start();
                 <li><a href="#">Jak zacząć inwestować</a></li>
                 <li><a href="#">Analiza kursów</a></li>
             </ul>
-            
+
              <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
                 <a href="" id="registerLink">Załóż konto</a>
             <?php endif; ?>
@@ -187,8 +187,54 @@ session_start();
                 <a class="welcome">Witaj <?php echo htmlspecialchars($_SESSION['username']);?>!</a>
             <?php endif;?>
 
+            <script>
+                document.getElementById('registerForm').addEventListener('submit', function (e) {
+                const password = document.getElementById('password').value;
+                const passwordConfirm = document.getElementById('password_confirm').value;
+
+                const passwordPolicy = /^[A-Za-z0-9!@#$%^&* \s]{12,128}$/u;
+                
+
+                if (!passwordPolicy.test(password)) {
+                    alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128.');
+                    e.preventDefault();
+                    return;
+                }
+
+                if (password !== passwordConfirm) {
+                    alert('Hasła nie są zgodne. Wpisz ponownie.');
+                    e.preventDefault();
+                }
+                });
+            </script>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                const registerLink = document.getElementById('registerLink');
+                const registerModal = document.getElementById('registerModal');
+                const closeRegisterModal = document.getElementById('closeRegisterModal');
+                const content = document.getElementById('content');
+
+                registerLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    registerModal.style.display = 'flex';
+                    content.style.display = 'none';
+                });
+
+                if (closeRegisterModal) {
+                    closeRegisterModal.addEventListener('click', () => {
+                        registerModal.style.display = 'none';
+                        content.style.display = 'flex';
+                    });
+                }
+                });
+            </script>
+
+            
             <div class="login-button">
-                <a href="#">Zaloguj</a>
+                <?php else: ?>
+                <a href="#" id="loginLink">Zaloguj się</a>
+                <?php endif; ?>
             </div>
         </nav>
 
