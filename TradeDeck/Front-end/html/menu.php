@@ -67,6 +67,39 @@ session_start();
                 }
             }
 
+            const resetError = urlParams.get('error');
+            const resetSuccess = urlParams.get('success');
+
+            if (resetError) {
+                switch (resetError) {
+                    case 'invalid_email':
+                        alert('Niepoprawny adres E-mail. Proszę wprowadzić poprawny adres.');
+                        break;
+                    case 'email_not_found':
+                        alert('Podany adres E-mail nie istnieje w naszej bazie danych.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera. Spróbuj ponownie później.');
+                        break;
+                    case 'invalid_request':
+                        alert('Nieprawidłowe żądanie. Spróbuj ponownie.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd podczas próby wysłania linku do resetowania hasła.');
+                }
+            }
+
+            if (resetSuccess) {
+                switch (resetSuccess) {
+                    case 'reset_link_sent':
+                        alert('Link do resetowania hasła został wysłany na Twój adres e-mail.');
+                        break;
+                    default:
+                        alert('Wysłanie linku zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
+                }
+            }
+
+
 </script>
 
 <body>
