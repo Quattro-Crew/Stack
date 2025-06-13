@@ -98,9 +98,75 @@ session_start();
                         alert('Wysłanie linku zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
                 }
             }
+ const resetPasswordError = urlParams.get('error');
+            const resetPasswordSuccess = urlParams.get('success');
 
+            if (resetPasswordError) {
+                switch (resetPasswordError) {
+                    case 'password_mismatch':
+                        alert('Hasła nie są zgodne. Wpisz ponownie.');
+                        break;
+                    case 'weak_password':
+                        alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128 znaków.');
+                        break;
+                    case 'invalid_token':
+                        alert('Link do resetowania hasła jest nieprawidłowy lub wygasł.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera podczas resetowania hasła. Spróbuj ponownie później.');
+                        break;
+                    case 'invalid_request':
+                        alert('Nieprawidłowe żądanie resetowania hasła.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd podczas resetowania hasła.');
+                }
+            }
 
-</script>
+            if (resetPasswordSuccess) {
+                switch (resetPasswordSuccess) {
+                    case 'password_reset':
+                        alert('Hasło zostało pomyślnie zresetowane! Możesz teraz się zalogować.');
+                        break;
+                    default:
+                        alert('Resetowanie hasła zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
+                }
+            }
+
+            const changePasswordError = urlParams.get('error');
+            const changePasswordSuccess = urlParams.get('success');
+
+            if (changePasswordError) {
+                switch (changePasswordError) {
+                    case 'password_mismatch':
+                        alert('Nowe hasła nie są zgodne. Wpisz ponownie.');
+                        break;
+                    case 'weak_password':
+                        alert('Nowe hasło musi mieć co najmniej 12 znaków i maksymalnie 128 znaków.');
+                        break;
+                    case 'incorrect_old_password':
+                        alert('Podane stare hasło jest nieprawidłowe.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera podczas zmiany hasła. Spróbuj ponownie później.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd podczas zmiany hasła.');
+                }
+            }
+
+            if (changePasswordSuccess) {
+                switch (changePasswordSuccess) {
+                    case 'password_changed':
+                        alert('Hasło zostało pomyślnie zmienione!');
+                        break;
+                    default:
+                        alert('Zmiana hasła zakończona sukcesem, ale wystąpił nieoczekiwany problem.');
+                }
+            }
+        })         
+    </script>
+
 
 <body>
  <header>
@@ -113,6 +179,14 @@ session_start();
                 <li><a href="#">Jak zacząć inwestować</a></li>
                 <li><a href="#">Analiza kursów</a></li>
             </ul>
+            
+             <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+                <a href="" id="registerLink">Załóż konto</a>
+            <?php endif; ?>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <a class="welcome">Witaj <?php echo htmlspecialchars($_SESSION['username']);?>!</a>
+            <?php endif;?>
+
             <div class="login-button">
                 <a href="#">Zaloguj</a>
             </div>
