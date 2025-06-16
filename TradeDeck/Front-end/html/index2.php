@@ -38,9 +38,9 @@
     </div>
 
     <div class="cards">
-        <div class="sub-card">
+        <div class="sub-card" >
             🟢 Poziom 1 – Podstawowy<br>
-            (dla początkujących)<br>
+            (dla początkujących)<br><br>
             <div class="card-beginer">
                 <div class="card__overlay"></div>
                 <div class="card__wrapper">
@@ -50,17 +50,17 @@
         </div>
 
         <div class="sub-card">
-            🟡 Poziom 2 – Średnio<br>zaawansowany<br>
+            🟡 Poziom 2 – Średnio<br>zaawansowany<br><br>
             <div class="card-intermediate">
                 <div class="card__overlay"></div>
                 <div class="card__wrapper">
-                    <div class="card__title">10 POJĘĆ</div>
+                    <div class="card__title" >10 POJĘĆ</div>
                 </div>
             </div>
         </div>
 
         <div class="sub-card">
-            🔵 Poziom 3 – Zaawansowany<br><br>
+            🔵 Poziom 3 – Zaawansowany<br><br><br>
             <div class="card-advanced">
                 <div class="card__overlay"></div>
                 <div class="card__wrapper">
@@ -71,7 +71,7 @@
 
         <div class="sub-card">
             🔴 Poziom 4 – Ekspercki<br>
-            (najbardziej złożone pojęcia)<br>
+            (najbardziej złożone pojęcia)<br><br>
             <div class="card-expert">
                 <div class="card__overlay"></div>
                 <div class="card__wrapper">
@@ -157,5 +157,24 @@
     <span class="text">ChatBot</span>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".sub-card");
+
+        cards.forEach(card => {
+            const title = card.querySelector(".card__title");
+
+            card.addEventListener("mouseenter", () => {
+                title.textContent = "Zaczynajmy! ;)";
+                title.classList.add("highlight-text");
+            });
+
+            card.addEventListener("mouseleave", () => {
+                title.textContent = "10 POJĘĆ";
+                title.classList.remove("highlight-text");
+            });
+        });
+    });
+</script>
 </body>
 </html>
