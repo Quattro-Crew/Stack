@@ -513,6 +513,39 @@ session_start();
         echo '<table border="1">';
         echo '<tr><th>Surowiec</th><th>Jednostka</th><th>Cena</th></tr>';
 
+        foreach ($commodityXpaths as $commodity => $xPathCommodity) {
+            $commodityelements = $xpath->query($xPathCommodity);
+
+            $xPathRate = $rateXpaths[$commodity];
+            $rateElements = $xpath->query($xPathRate);
+
+            echo '<tr><td>'.ucfirst($commodity) . '</td>';
+
+            echo '<td>';
+            if ($commodityelements->length > 0) {
+                echo $commodityelements->item(0)->nodeValue;
+            } else {
+                echo 'Brak danych.';
+            }
+            echo '</td>';
+
+            echo '<td>';
+
+
+        if ($rateElements->length > 0) {
+                echo $rateElements->item(0)->nodeValue;
+            } else {
+                echo 'Brak danych.';
+            }
+            echo '</td>';
+            
+            echo '</tr>';
+        }
+
+        echo '</table>';
+
+        ?>
+
          </div>
 
 
