@@ -257,9 +257,64 @@ h3 {
 }
 
 /*=================================
-   kursy (tutaj dajesz css kursów)
+   kursy
  ================================== */
 
+ .stock{
+     margin: 55px auto 0 auto;
+    background-color: RGB(49, 50, 55);
+    height: 600px;
+    width: 48%;
+    text-align: center;
+    color: white;
+    padding-top: 25px;;
+}
+.stock p{
+    text-align: center;
+    font-size: 21px;
+}
+
+.stock a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.stock a:hover{
+    text-decoration: underline;
+}
+
+.stock table{
+    margin-top: 45px;
+    margin-left: 28px;
+    position: absolute;  
+    border: 5px solid white;
+}
+
+
+.stock th{
+    font-size: 19px;
+    padding-top: 50px;
+    padding: 5px 5px 5px 5px;
+    margin-right: 15px;
+    height: 50px;
+    width: 160px;
+
+}
+
+.stock tr{
+   
+    font-size: 19px;
+    padding: 5px 5px 5px 5px;
+    height: 50px;
+    
+}
+
+.stock td{
+    padding-top: 19px;
+    padding: 5px 5px 5px 5px;
+    
+}
 
 /* ================================
    STOPKA 1 - PRZYDATNE LINKI
