@@ -34,11 +34,13 @@
 <div class="container">
     <h2>Fiszki</h2>
     <div class="options">
-        <!-- Można dodać selektory, filtry itd. -->
+
     </div>
 
     <div class="cards">
         <div class="sub-card">
+            🟢 Poziom 1 – Podstawowy<br>
+            (dla początkujących)<br>
             <div class="card-beginer">
                 <div class="card__overlay"></div>
                 <div class="card__wrapper">
@@ -48,20 +50,33 @@
         </div>
 
         <div class="sub-card">
+            🟡 Poziom 2 – Średnio<br>zaawansowany<br>
             <div class="card-intermediate">
-                <!-- Zawartość dla poziomu średniego -->
+                <div class="card__overlay"></div>
+                <div class="card__wrapper">
+                    <div class="card__title">10 POJĘĆ</div>
+                </div>
             </div>
         </div>
 
         <div class="sub-card">
+            🔵 Poziom 3 – Zaawansowany<br><br>
             <div class="card-advanced">
-                <!-- Zawartość dla poziomu zaawansowanego -->
+                <div class="card__overlay"></div>
+                <div class="card__wrapper">
+                    <div class="card__title">10 POJĘĆ</div>
+                </div>
             </div>
         </div>
 
         <div class="sub-card">
+            🔴 Poziom 4 – Ekspercki<br>
+            (najbardziej złożone pojęcia)<br>
             <div class="card-expert">
-                <!-- Zawartość dla poziomu eksperckiego -->
+                <div class="card__overlay"></div>
+                <div class="card__wrapper">
+                    <div class="card__title">10 POJĘĆ</div>
+                </div>
             </div>
         </div>
     </div>
