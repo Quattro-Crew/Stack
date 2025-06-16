@@ -100,6 +100,16 @@ body.dark-mode .input1 button:hover {
     background-color: #4caf50;
 }
 
+body.dark-mode .user {
+    text-align: right;
+    color: white;
+}
+
+body.dark-mode .bot {
+    text-align: left;
+    color: lightgreen;
+}
+
 #darkModeToggle {
   padding: 8px;
   border: none;
