@@ -16,7 +16,7 @@
         <ul class="nav-links">
             <li><a href="menu.php">Strona główna</a></li>
             <li><a href="index2.php">Jak zacząć inwestować</a></li>
-            <li><a href="#">Analiza kursów</a></li>
+            <li><a href="index3.php">Analiza kursów</a></li>
         </ul>
         <div class="login-button">
             <a href="#">Zaloguj</a>
@@ -25,46 +25,14 @@
 
     <div class="hero">
         <div class="hero-overlay">
-            <h1 class="hero-text">Rozpocznij z nami<br>naukę!</h1>
-            <h5 class="hero-text2">Naucz się słownika giełdy.<br>Dzięki stworzonym przez nas fiszkom<br>zapamiętasz je bez problemu</h5>
+            <h1 class="hero-text">Zobacz dzisiejsze<br>kursy</h1>
+            <h5 class="hero-text2">Dzięki naszym narzędziom możesz,<br>prosto i łatwo,<br>przeanalizować kusy z różnych źródeł.</h5>
         </div>
     </div>
 </header>
 
 <div class="container">
-    <h2>Fiszki</h2>
-    <div class="options">
-        <!-- Można dodać selektory, filtry itd. -->
-    </div>
 
-    <div class="cards">
-        <div class="sub-card">
-            <div class="card-beginer">
-                <div class="card__overlay"></div>
-                <div class="card__wrapper">
-                    <div class="card__title">10 POJĘĆ</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="sub-card">
-            <div class="card-intermediate">
-                <!-- Zawartość dla poziomu średniego -->
-            </div>
-        </div>
-
-        <div class="sub-card">
-            <div class="card-advanced">
-                <!-- Zawartość dla poziomu zaawansowanego -->
-            </div>
-        </div>
-
-        <div class="sub-card">
-            <div class="card-expert">
-                <!-- Zawartość dla poziomu eksperckiego -->
-            </div>
-        </div>
-    </div>
 </div>
 
 <footer>
