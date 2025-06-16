@@ -41,7 +41,7 @@
         <div class="sub-card" >
             🟢 Poziom 1 – Podstawowy<br>
             (dla początkujących)<br><br>
-            <div class="card-beginer">
+            <div class="card-beginer" id="openModal">
                 <div class="card__overlay"></div>
                 <div class="card__wrapper">
                     <div class="card__title">10 POJĘĆ</div>
@@ -79,6 +79,25 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Zacznij Nauke!</h2>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <p class="title">Pojęcie</p>
+                </div>
+                <div class="flip-card-back">
+                    <p>Definicja</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -172,6 +191,26 @@
             card.addEventListener("mouseleave", () => {
                 title.textContent = "10 POJĘĆ";
                 title.classList.remove("highlight-text");
+            });
+        });
+
+        const modal = document.getElementById("myModal");
+        const openBtn = document.getElementById("openModal");
+        const closeBtn = modal.querySelector(".close");
+
+        // Otwórz modal
+        openBtn.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
+
+        // Zamknij modal (X)
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
             });
         });
     });
