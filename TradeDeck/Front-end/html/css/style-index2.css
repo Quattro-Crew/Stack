@@ -358,6 +358,7 @@ h3 {
 .modal {
     display: none; /* Ukryty domyślnie */
     position: fixed;
+    align-items: center;
     z-index: 1000;
     left: 0;
     top: 0;
@@ -369,13 +370,14 @@ h3 {
 
 /* Zawartość modala */
 .modal-content {
-    background-color: #fff;
+    background-color: #ceeddb;
     margin: 10% auto;
     padding: 20px;
     border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
+    width: 60%;
+    height: 90%;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    align-items: center;
 }
 
 /* Przycisk zamykania */
@@ -394,8 +396,8 @@ h3 {
 /* karty*/
 .flip-card {
     background-color: transparent;
-    width: 190px;
-    height: 254px;
+    width: 310px;
+    height: 454px;
     perspective: 1000px;
     font-family: sans-serif;
 }
