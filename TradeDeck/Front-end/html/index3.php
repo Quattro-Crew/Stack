@@ -442,7 +442,7 @@ session_start();
                     });
                 }
     </script>
-    
+
     </nav>
 
     <div class="hero">
@@ -455,7 +455,65 @@ session_start();
 
 <div class="container">
 
+<div class="stock">
+            <h2>Dane surowców pobrane z :</h2><br>
+            <a href="https://notowania.pb.pl/commodities/">https://notowania.pb.pl/commodities/</a>
+        <?php
+        $url = 'https://notowania.pb.pl/commodities/';
+        // cURL
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
+        if ($response === false) {
+            die('Błąd w pobieraniu danych.');
+        }
+
+        $dom = new DOMDocument();
+
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($response);
+        libxml_clear_errors();
+
+        $xpath = new DOMXPath($dom);
+
+        $commodityXpaths = [
+            'złoto' =>  /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[14]/td[2]',
+
+            'pszenica' => /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[32]/td[2]',
+
+            'aluminium' =>  /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[1]/td[2]',
+
+            'kakao'     => /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[5]/td[2]',
+
+            'cukier'    => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[31]/td[2]',
+
+            'pallad'    => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[20]/td[2]'
+
+
+        ];
+
+        $rateXpaths = [
+            'złoto' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[14]/td[3]/span',
+
+            'pszenica' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[32]/td[3]/span',
+
+            'aluminium' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[1]/td[3]/span',
+
+            'kakao' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[5]/td[3]/span',
+
+            'cukier' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[31]/td[3]/span',
+
+            'pallad' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[20]/td[3]/span'
+
+        ];
+
+        // Dane
+        echo '<table border="1">';
+        echo '<tr><th>Surowiec</th><th>Jednostka</th><th>Cena</th></tr>';
+
+         </div>
 
 
 
