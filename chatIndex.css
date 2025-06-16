@@ -65,3 +65,52 @@ body, html {
 .input1 button:hover {
     background: #45a049;
 }
+
+.input1 button#send img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    filter: invert(1);
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode .container {
+    background-color: #000000;
+}
+
+body.dark-mode .history {
+    background: #1e1e1e;
+    border-color: #444;
+}
+
+body.dark-mode .input1 input {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode .input1 button {
+    background-color: #388e3c;
+}
+
+body.dark-mode .input1 button:hover {
+    background-color: #4caf50;
+}
+
+#darkModeToggle {
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#darkModeToggle img {
+  width: 20px;
+  height: 20px;
+}

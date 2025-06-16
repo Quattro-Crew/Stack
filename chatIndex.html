@@ -11,12 +11,16 @@
         <div id="history" class="history"></div>
         <div class="input1">
             <input type="text" id="input2" placeholder="Napisz wiadomość..."/>
-            <button onclick="sendMessage()">Wyślij</button>
+            <button onclick="toggleDarkMode()" id="darkModeToggle">
+                <img src="Icons/darkModeIcon.svg" alt="Tryb Ciemny" id="themeIcon"/>
+            </button>
+            <button onclick="sendMessage()" id="send">
+                Wyślij
+                <img src="Icons/sendIcon.svg" alt="Wyślij">
+            </button>
         </div>
     </div>
     <script>
-        fetch("chatbot_start.php");
-
         const chatHistory = document.getElementById("history");
         const userInput = document.getElementById("input2");
 
@@ -66,10 +70,29 @@
                 sendMessage();
             }
         });
+    </script>
+    <script>
+        const themeIcon = document.getElementById("themeIcon");
 
-        window.addEventListener("beforeunload", function() {
-            navigator.sendBeacon("chatbot_stop.php");
+        window.addEventListener("DOMContentLoaded", () => {
+            const dark = localStorage.getItem("dark-mode") === "true";
+            if (dark) {
+                document.body.classList.add("dark-mode");
+                themeIcon.src = "Icons/lightModeIcon.svg";
+            }
         });
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const isDark = body.classList.toggle("dark-mode");
+            localStorage.setItem("dark-mode", isDark);
+
+            if (isDark) {
+                themeIcon.src = "Icons/lightModeIcon.svg";
+            } else {
+                themeIcon.src = "Icons/darkModeIcon.svg";
+            }
+        }
     </script>
 </body>
 </html>
