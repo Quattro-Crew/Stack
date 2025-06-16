@@ -175,6 +175,13 @@ session_start();
                 <img src="css/img/TradeDeck-Logo.png" alt="Logo">
             </div>
             <ul class="nav-links">
+                <li><a href="menu.php">Strona główna</a></li>
+                <li><a href="index2.php">Jak zacząć inwestować</a></li>
+                <li><a href="#">Analiza kursów</a></li>
+            </ul>
+            <div class="login-button">
+                <a href="#">Zaloguj</a>
+            </div>
                 <li><a href="#">Strona główna</a></li>
                 <li><a href="#">Jak zacząć inwestować</a></li>
                 <li><a href="#">Analiza kursów</a></li>
@@ -482,6 +489,23 @@ session_start();
     <section class="dark-section">
             <h2>Dlaczego my?</h2>
         <div class="line"></div>
+            <span>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </span>
             <!-- Tutaj można dodać treść -->
     </section>
 
