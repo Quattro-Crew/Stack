@@ -77,7 +77,7 @@ body {
 .hero {
     position: relative;
     height: 400px;
-    background: url('img/index3-foto.jpg') no-repeat center center/cover;
+    background: url('img/header-index3-foto.jpg') no-repeat center center/cover;
 }
 
 .hero-overlay {
