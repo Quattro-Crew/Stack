@@ -94,5 +94,15 @@
             }
         }
     </script>
+    <script>
+        console.log("Strona załadowana");
+        
+        window.addEventListener("DOMContentLoaded", () => {
+            console.log("Uruchamiam bota...");
+            fetch("chatbot_start.php")
+            .then(res => console.log("Bot start: ", res.status))
+            .catch(err => console.error("Bot start error: ", err));
+        });
+    </script>
 </body>
 </html>
