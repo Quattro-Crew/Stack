@@ -16,7 +16,7 @@
         <ul class="nav-links">
             <li><a href="menu.php">Strona główna</a></li>
             <li><a href="index2.php">Jak zacząć inwestować</a></li>
-            <li><a href="#">Analiza kursów</a></li>
+            <li><a href="index3.php">Analiza kursów</a></li>
         </ul>
         <div class="login-button">
             <a href="#">Zaloguj</a>
@@ -85,21 +85,127 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Zacznij Nauke!</h2>
+        <h2>Rozpocznij Nauke!</h2>
 
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <p class="title">Pojęcie</p>
+                    <p class="title" id="pojecie">Pojęcie</p>
                 </div>
                 <div class="flip-card-back">
-                    <p>Definicja</p>
+                    <p id="definicja">Definicja</p>
                 </div>
             </div>
         </div>
-
+        <div class="buttons-modal">
+            <button id="nextBtn" style="margin-top: 20px;">Zapamiętałem 🫡</button>
+            <button id="nextBtn-false" style="margin-top: 20px;">Nie Pamiętam 🫣</button>
+        </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".sub-card");
+
+        cards.forEach(card => {
+            const title = card.querySelector(".card__title");
+
+            card.addEventListener("mouseenter", () => {
+                title.textContent = "Zaczynajmy! ;)";
+                title.classList.add("highlight-text");
+            });
+
+            card.addEventListener("mouseleave", () => {
+                title.textContent = "10 POJĘĆ";
+                title.classList.remove("highlight-text");
+            });
+        });
+
+        const modal = document.getElementById("myModal");
+        const closeBtn = modal.querySelector(".close");
+        const flipCard = document.querySelector('.flip-card');
+
+        function loadFiszki(level = 1) {
+            // USUŃ poprzednie klasy level-X
+            modal.classList.remove("level-1", "level-2", "level-3", "level-4");
+            flipCard.classList.remove("level-1", "level-2", "level-3", "level-4");
+
+            // DODAJ aktualną klasę level-X
+            modal.classList.add(`level-${level}`);
+            flipCard.classList.add(`level-${level}`);
+
+            fetch(`get_fiszki.php?level=${level}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        let index = 0;
+                        let isFlipped = false;
+
+                        const pojecie = document.getElementById("pojecie");
+                        const definicja = document.getElementById("definicja");
+                        const nextBtn = document.getElementById("nextBtn");
+
+                        function showFront(i) {
+                            pojecie.textContent = data[i].nazwa;
+                            definicja.textContent = "";
+                            flipCard.classList.remove('flipped');
+                            isFlipped = false;
+                            nextBtn.disabled = true;
+                        }
+
+                        function showBack(i) {
+                            definicja.textContent = data[i].tresc;
+                            flipCard.classList.add('flipped');
+                            isFlipped = true;
+                            nextBtn.disabled = false;
+                        }
+
+                        showFront(index);
+
+                        flipCard.onclick = () => {
+                            if (!isFlipped) {
+                                showBack(index);
+                            }
+                        };
+
+                        nextBtn.onclick = () => {
+                            if (isFlipped) {
+                                index = (index + 1) % data.length;
+                                showFront(index);
+                            }
+                        };
+                    }
+                });
+        }
+
+        // Otwórz modal na odpowiedni poziom
+        document.getElementById("openModal")?.addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(1); // poziom 1
+        });
+
+        document.querySelector(".card-intermediate")?.addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(2); // poziom 2
+        });
+
+        document.querySelector(".card-advanced")?.addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(3); // poziom 3
+        });
+
+        document.querySelector(".card-expert")?.addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(4); // poziom 4
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    });
+</script>
+
 
 <footer>
     <div class="footer1">
@@ -176,44 +282,6 @@
     <span class="text">ChatBot</span>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".sub-card");
 
-        cards.forEach(card => {
-            const title = card.querySelector(".card__title");
-
-            card.addEventListener("mouseenter", () => {
-                title.textContent = "Zaczynajmy! ;)";
-                title.classList.add("highlight-text");
-            });
-
-            card.addEventListener("mouseleave", () => {
-                title.textContent = "10 POJĘĆ";
-                title.classList.remove("highlight-text");
-            });
-        });
-
-        const modal = document.getElementById("myModal");
-        const openBtn = document.getElementById("openModal");
-        const closeBtn = modal.querySelector(".close");
-
-        // Otwórz modal
-        openBtn.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
-
-        // Zamknij modal (X)
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        document.querySelectorAll('.flip-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
-            });
-        });
-    });
-</script>
 </body>
 </html>
