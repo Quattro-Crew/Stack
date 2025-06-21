@@ -1,0 +1,46 @@
+html
+---------
+<div class="card">
+  <div class="card-top">
+    <span>Top</span>
+  </div>
+  <div class="card-bottom">
+    <span>bottom</span>
+  </div>
+</div>
+---------
+
+.card {
+  --primary-clr: #1a3030;
+  --play: #759686;
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+  font-family: "Arial";
+  color: #fff;
+  display: grid;
+  cursor: pointer;
+  grid-template-rows: 70px 1fr;
+}
+
+.card:hover .card-bottom {
+  transform: translateY(-1em);
+}
+
+.card-top {
+  transition: transform 0.4s ease;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: #759686;
+  padding: 15px;
+}
+
+.card-bottom {
+  border-radius: 0 0 10px 10px;
+  padding: 15px;
+  position: relative;
+  display: grid;
+  gap: 10px;
+  background: var(--primary-clr);
+  transition: transform 0.4s ease;
+}
