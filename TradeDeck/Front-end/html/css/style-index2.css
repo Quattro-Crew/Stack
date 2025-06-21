@@ -367,6 +367,16 @@ h3 {
     align-items: center;
 }
 
+.modal-content h2{
+    color:#494949;
+    font-size: 30px;
+    background-color: #B5D7D4;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4%;
+;
+}
+
 /* Zawartość modala */
 .modal-content {
     display: flex;
@@ -392,10 +402,10 @@ h3 {
 /* Przycisk zamknięcia */
 .close {
     position: absolute;
-    top: 15px;
+    top: 16px;
     right: 25px;
-    color: white;
-    font-size: 32px;
+    color: #330000;
+    font-size: 50px;
     font-weight: bold;
     cursor: pointer;
     z-index: 2;
