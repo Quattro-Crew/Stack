@@ -124,81 +124,88 @@
 
         const modal = document.getElementById("myModal");
         const closeBtn = modal.querySelector(".close");
+        const flipCard = document.querySelector('.flip-card');
 
         function loadFiszki(level = 1) {
-    fetch(`get_fiszki.php?level=${level}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.length > 0) {
-                let index = 0;
-                let isFlipped = false;
+            // USUŃ poprzednie klasy level-X
+            modal.classList.remove("level-1", "level-2", "level-3", "level-4");
+            flipCard.classList.remove("level-1", "level-2", "level-3", "level-4");
 
-                const pojecie = document.getElementById("pojecie");
-                const definicja = document.getElementById("definicja");
-                const flipCard = document.querySelector('.flip-card');
-                const nextBtn = document.getElementById("nextBtn");
+            // DODAJ aktualną klasę level-X
+            modal.classList.add(`level-${level}`);
+            flipCard.classList.add(`level-${level}`);
 
-                function showFront(i) {
-                    pojecie.textContent = data[i].nazwa;
-                    definicja.textContent = "";
-                    flipCard.classList.remove('flipped');
-                    isFlipped = false;
-                    nextBtn.disabled = true; // przycisk nieaktywny przed odwróceniem
-                }
+            fetch(`get_fiszki.php?level=${level}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        let index = 0;
+                        let isFlipped = false;
 
-                function showBack(i) {
-                    definicja.textContent = data[i].tresc;
-                    flipCard.classList.add('flipped');
-                    isFlipped = true;
-                    nextBtn.disabled = false; // aktywuj przycisk
-                }
+                        const pojecie = document.getElementById("pojecie");
+                        const definicja = document.getElementById("definicja");
+                        const nextBtn = document.getElementById("nextBtn");
 
-                // Pokaż pierwszą fiszkę
-                showFront(index);
+                        function showFront(i) {
+                            pojecie.textContent = data[i].nazwa;
+                            definicja.textContent = "";
+                            flipCard.classList.remove('flipped');
+                            isFlipped = false;
+                            nextBtn.disabled = true;
+                        }
 
-                flipCard.onclick = () => {
-                    if (!isFlipped) {
-                        showBack(index);
-                    }
-                };
+                        function showBack(i) {
+                            definicja.textContent = data[i].tresc;
+                            flipCard.classList.add('flipped');
+                            isFlipped = true;
+                            nextBtn.disabled = false;
+                        }
 
-                nextBtn.onclick = () => {
-                    if (isFlipped) {
-                        index = (index + 1) % data.length;
                         showFront(index);
+
+                        flipCard.onclick = () => {
+                            if (!isFlipped) {
+                                showBack(index);
+                            }
+                        };
+
+                        nextBtn.onclick = () => {
+                            if (isFlipped) {
+                                index = (index + 1) % data.length;
+                                showFront(index);
+                            }
+                        };
                     }
-                };
-            }
-        });
-}
+                });
+        }
 
-        // Obsługa kliknięć na wszystkie poziomy
-        document.getElementById("openModal").addEventListener("click", () => {
+        // Otwórz modal na odpowiedni poziom
+        document.getElementById("openModal")?.addEventListener("click", () => {
             modal.style.display = "block";
-            loadFiszki(1); // Poziom 1
+            loadFiszki(1); // poziom 1
         });
 
-        document.querySelector(".card-intermediate").addEventListener("click", () => {
+        document.querySelector(".card-intermediate")?.addEventListener("click", () => {
             modal.style.display = "block";
-            loadFiszki(2); // Poziom 2
+            loadFiszki(2); // poziom 2
         });
 
-        document.querySelector(".card-advanced").addEventListener("click", () => {
+        document.querySelector(".card-advanced")?.addEventListener("click", () => {
             modal.style.display = "block";
-            loadFiszki(3); // Poziom 3
+            loadFiszki(3); // poziom 3
         });
 
-        document.querySelector(".card-expert").addEventListener("click", () => {
+        document.querySelector(".card-expert")?.addEventListener("click", () => {
             modal.style.display = "block";
-            loadFiszki(4); // Poziom 4
+            loadFiszki(4); // poziom 4
         });
 
-        // Zamknij modal (X)
         closeBtn.addEventListener("click", () => {
             modal.style.display = "none";
         });
     });
 </script>
+
 
 <footer>
     <div class="footer1">

@@ -354,6 +354,7 @@ h3 {
 /* ================================
    karta modalna
 =================================== */
+/* === MODAL OGÓLNY === */
 .modal {
     display: none;
     position: fixed;
@@ -362,44 +363,43 @@ h3 {
     top: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, #1a2e25 0%, #0f1e18 100%);
     justify-content: center;
     align-items: center;
 }
 
-.modal-content h2{
-    color:#494949;
+/* === MODAL NA KAŻDY POZIOM === */
+.modal.level-1 {
+    background: radial-gradient(circle, #1a2e25 0%, #0f1e18 100%);
+}
+.modal.level-2 {
+    background: radial-gradient(circle, #2a1e3a 0%, #1a0f28 100%);
+}
+.modal.level-3 {
+    background: radial-gradient(circle, #3a2a1e 0%, #281a0f 100%);
+}
+.modal.level-4 {
+    background: radial-gradient(circle, #3a1e2a 0%, #280f1a 100%);
+}
+
+/* === MODAL ZAWARTOŚĆ === */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+    height: 100%;
+}
+.modal-content h2 {
+    color: #494949;
     font-size: 30px;
     background-color: #B5D7D4;
     width: 100%;
     text-align: center;
     margin-bottom: 4%;
-;
 }
 
-/* Zawartość modala */
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* ważne! by ułożyć kartę i przycisk od góry w dół */
-    padding-top: 30px;
-    height: 100%;
-}
-
-/* Tytuł */
-.title {
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 10px 30px;
-    border-radius: 5px;
-    font-size: 2em;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Przycisk zamknięcia */
+/* === PRZYCISK ZAMKNIĘCIA === */
 .close {
     position: absolute;
     top: 16px;
@@ -410,12 +410,11 @@ h3 {
     cursor: pointer;
     z-index: 2;
 }
-
 .close:hover {
     color: #ffaaaa;
 }
 
-/* KARTA */
+/* === FLIP CARD OGÓLNY === */
 .flip-card {
     background-color: transparent;
     width: 310px;
@@ -424,7 +423,6 @@ h3 {
     font-family: sans-serif;
     margin-top: 20px;
 }
-
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -433,57 +431,91 @@ h3 {
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-
 .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+/* === FRONT & BACK OGÓLNY (BEZ KOLORÓW!) === */
+.flip-card-front,
+.flip-card-back {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 100%;
+    padding: 20px;
+    border: 1px solid #439a2f;
+    border-radius: 1rem;
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border: 1px solid coral;
-    border-radius: 1rem;
-    padding: 20px;
-}
-
-.flip-card-front {
-    background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
-    rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
-    color: coral;
-    font-size: 1.2em;
+    font-size: 24px;
 }
 
 .flip-card-back {
-    background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
-    bisque 40%, rgb(255, 185, 160) 78%);
-    color: white;
     transform: rotateY(180deg);
-    font-size: 1.1em;
 }
 
-/* Przycisk "Dalej" */
-#nextBtn {
+/* === POZIOM 1 === */
+.flip-card.level-1 .flip-card-front {
+    background: linear-gradient(120deg, #dcffc4 60%, #efffde 88%, #d9ffc3 40%, rgba(150, 255, 80, 0.6) 48%);
+    color: #58853a;
+}
+.flip-card.level-1 .flip-card-back {
+    background: linear-gradient(120deg, #adff91 30%, #82ff50 88%, #d8ffc4 40%, #bbffa0 78%);
+    color: white;
+}
+
+/* === POZIOM 2 === */
+.flip-card.level-2 .flip-card-front {
+
+    background: linear-gradient(120deg, #ffc4b5 60%, #ffe2dd 88%, #ffc7a7 40%, #ff8060 48%);
+    color: #ff5060;
+}
+.flip-card.level-2 .flip-card-back {
+    background: linear-gradient(120deg, #ffb0a3 30%, #ff5077 88%, #ffc4a4 40%, #ff9a7a 78%);
+    color: white;
+}
+
+/* === POZIOM 3 === */
+.flip-card.level-3 .flip-card-front {
+    background: linear-gradient(120deg, #c4d7ff 60%, #dde9ff 88%, #c4d0ff 40%, #6080ff 48%);
+    color: #5060ff;
+}
+.flip-card.level-3 .flip-card-back {
+    background: linear-gradient(120deg, #a3b8ff 30%, #5077ff 88%, #a4c4ff 40%, #7a9aff 78%);
+    color: white;
+}
+
+/* === POZIOM 4 === */
+.flip-card.level-4 .flip-card-front {
+    background: linear-gradient(120deg, #e8b5ff 60%, #f1ddff 88%, #d0aaff 40%, #a860ff 48%);
+    color: #8050ff;
+}
+.flip-card.level-4 .flip-card-back {
+    background: linear-gradient(120deg, #b8a3ff 30%, #7750ff 88%, #c4a4ff 40%, #9a7aff 78%);
+    color: white;
+}
+
+/* === PRZYCISK DALEJ === */
+#nextBtn, #nextBtn-false {
     font-size: 18px;
     display: inline-block;
     outline: 0;
     border: 0;
     cursor: pointer;
-    will-change: box-shadow,transform;
-    background: radial-gradient( 100% 100% at 100% 0%, #9fcaa8 0%, #65bf31 100% );
-    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgba(58, 111, 68, 0.5);
     padding: 0 2em;
     border-radius: 0.3em;
     color: #fff;
     height: 2.6em;
     text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
     transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+#nextBtn {
+    background: radial-gradient(100% 100% at 100% 0%, #9fcaa8 0%, #65bf31 100%);
+    box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgba(58, 111, 68, 0.5);
 }
 
 #nextBtn:hover:not(:disabled) {
@@ -494,43 +526,29 @@ h3 {
     box-shadow: inset 0px 0.1em 0.6em #3ce09e;
     transform: translateY(0em);
 }
-
 #nextBtn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
+/* === PRZYCISK ZŁY (CZERWONY) === */
 #nextBtn-false {
-    font-size: 18px;
-    display: inline-block;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    will-change: box-shadow,transform;
-    background: radial-gradient( 100% 100% at 100% 0%, #bc7878 0%, #ce1020 100% );
+    background: radial-gradient(100% 100% at 100% 0%, #bc7878 0%, #ce1020 100%);
     box-shadow: 0px 0.01em 0.01em rgba(66, 35, 35, 0.4), 0px 0.3em 0.7em -0.01em rgba(66, 35, 35, 0.3), inset 0px -0.01em 0px rgba(111, 58, 58, 0.5);
-    padding: 0 2em;
-    border-radius: 0.3em;
-    color: #fff;
-    height: 2.6em;
-    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
-    transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
-
 #nextBtn-false:hover:not(:disabled) {
     box-shadow: 0px 0.1em 0.2em rgba(66, 35, 35, 0.44), 0px 0.4em 0.7em -0.1em rgba(66, 35, 35, 0.3), inset 0px -0.1em 0px #3e0e0e;
     transform: translateY(-0.1em);
 }
-
 #nextBtn-false:active {
     box-shadow: inset 0px 0.1em 0.6em #e03c3c;
     transform: translateY(0em);
 }
-
 #nextBtn-false:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
+
 /* ================================
    STOPKA 1 - PRZYDATNE LINKI
 =================================== */
