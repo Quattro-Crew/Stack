@@ -85,7 +85,7 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>Zacznij Nauke!</h2>
+        <h2>Rozpocznij Nauke!</h2>
 
         <div class="flip-card">
             <div class="flip-card-inner">
@@ -97,10 +97,11 @@
                 </div>
             </div>
         </div>
-
+        <div class="buttons-modal">
+            <button id="nextBtn" style="margin-top: 20px;">Zapamiętałem 🫡</button>
+            <button id="nextBtn-false" style="margin-top: 20px;">Nie Pamiętam 🫣</button>
+        </div>
     </div>
-    <button id="nextBtn" style="margin-top: 20px;">Zapamiętałem</button>
-
 </div>
 
 <script>
