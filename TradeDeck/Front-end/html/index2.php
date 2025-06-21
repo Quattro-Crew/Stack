@@ -90,16 +90,114 @@
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <p class="title">Pojęcie</p>
+                    <p class="title" id="pojecie">Pojęcie</p>
                 </div>
                 <div class="flip-card-back">
-                    <p>Definicja</p>
+                    <p id="definicja">Definicja</p>
                 </div>
             </div>
         </div>
 
     </div>
+    <button id="nextBtn" style="margin-top: 20px;">Zapamiętałem</button>
+
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".sub-card");
+
+        cards.forEach(card => {
+            const title = card.querySelector(".card__title");
+
+            card.addEventListener("mouseenter", () => {
+                title.textContent = "Zaczynajmy! ;)";
+                title.classList.add("highlight-text");
+            });
+
+            card.addEventListener("mouseleave", () => {
+                title.textContent = "10 POJĘĆ";
+                title.classList.remove("highlight-text");
+            });
+        });
+
+        const modal = document.getElementById("myModal");
+        const closeBtn = modal.querySelector(".close");
+
+        function loadFiszki(level = 1) {
+    fetch(`get_fiszki.php?level=${level}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                let index = 0;
+                let isFlipped = false;
+
+                const pojecie = document.getElementById("pojecie");
+                const definicja = document.getElementById("definicja");
+                const flipCard = document.querySelector('.flip-card');
+                const nextBtn = document.getElementById("nextBtn");
+
+                function showFront(i) {
+                    pojecie.textContent = data[i].nazwa;
+                    definicja.textContent = "";
+                    flipCard.classList.remove('flipped');
+                    isFlipped = false;
+                    nextBtn.disabled = true; // przycisk nieaktywny przed odwróceniem
+                }
+
+                function showBack(i) {
+                    definicja.textContent = data[i].tresc;
+                    flipCard.classList.add('flipped');
+                    isFlipped = true;
+                    nextBtn.disabled = false; // aktywuj przycisk
+                }
+
+                // Pokaż pierwszą fiszkę
+                showFront(index);
+
+                flipCard.onclick = () => {
+                    if (!isFlipped) {
+                        showBack(index);
+                    }
+                };
+
+                nextBtn.onclick = () => {
+                    if (isFlipped) {
+                        index = (index + 1) % data.length;
+                        showFront(index);
+                    }
+                };
+            }
+        });
+}
+
+        // Obsługa kliknięć na wszystkie poziomy
+        document.getElementById("openModal").addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(1); // Poziom 1
+        });
+
+        document.querySelector(".card-intermediate").addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(2); // Poziom 2
+        });
+
+        document.querySelector(".card-advanced").addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(3); // Poziom 3
+        });
+
+        document.querySelector(".card-expert").addEventListener("click", () => {
+            modal.style.display = "block";
+            loadFiszki(4); // Poziom 4
+        });
+
+        // Zamknij modal (X)
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    });
+</script>
 
 <footer>
     <div class="footer1">
@@ -176,44 +274,6 @@
     <span class="text">ChatBot</span>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".sub-card");
 
-        cards.forEach(card => {
-            const title = card.querySelector(".card__title");
-
-            card.addEventListener("mouseenter", () => {
-                title.textContent = "Zaczynajmy! ;)";
-                title.classList.add("highlight-text");
-            });
-
-            card.addEventListener("mouseleave", () => {
-                title.textContent = "10 POJĘĆ";
-                title.classList.remove("highlight-text");
-            });
-        });
-
-        const modal = document.getElementById("myModal");
-        const openBtn = document.getElementById("openModal");
-        const closeBtn = modal.querySelector(".close");
-
-        // Otwórz modal
-        openBtn.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
-
-        // Zamknij modal (X)
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        document.querySelectorAll('.flip-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
-            });
-        });
-    });
-</script>
 </body>
 </html>
