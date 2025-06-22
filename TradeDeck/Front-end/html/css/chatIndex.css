@@ -126,6 +126,7 @@ body.dark-mode .bot {
 }
 
 .navbar {
+    position: sticky;
     top: 0;
     z-index: 999;
     display: flex;
@@ -158,7 +159,7 @@ body.dark-mode .bot {
     text-decoration: underline;
 }
 
-.login-button a {
+.rejestracja a {
     background-color: #759686;
     color: #1a3030;
     padding: 8px 16px;
@@ -168,7 +169,7 @@ body.dark-mode .bot {
     transition: background-color 0.3s;
 }
 
-.login-button a:hover {
+.rejestracja a:hover {
     background-color: #61aa93;
 }
 
@@ -192,15 +193,13 @@ body.dark-mode .bot {
     text-align: center;
 }
 
-.modal-content button[type=submit]{
+.modal-content .navbutton[type=submit]{
     margin-top: 35px;
 }
 
 .modal-content .meter{
     height: 150px;
 }
-
-
 
 .close {
     float: right;
@@ -243,48 +242,6 @@ color: white;
     text-decoration: underline 1.5px solid rgb(131, 200, 215);
 }
 
-.rejestracja{
-    height: 39px;
-    background-color: rgb(241, 239, 239);
-    width: 135px;
-    margin-left: 174vh;
-    margin-top: 16px;
-    position: absolute;
-    border-radius: 5px 5px 5px 5px;
-    padding-top: 7.5px;
-    border: 1px gray solid;
-    
-
-}
-.rejestracja:hover{
-    background-color: #777777;
-}
-
-.rejestracja:hover a{
-    color: rgb(241, 239, 239);
-}
-
-.rejestracja a{
-    font-size: 18px;
-    padding-left: 8px;
-    text-decoration: none;
-    color: rgb(62, 132, 148);
-    float: left;
-    
-    
-}
-
-.lock{
-    height: 25px;
-    padding-left: 5px;
-    padding-bottom: 3px;
-    float: left;
-    filter: invert(552%) sepia(53%) saturate(20%) hue-rotate(68deg) brightness(20%) contrast(9%);
-}
-
-.rejestracja:hover .lock{
-    filter: invert(95%) sepia(100%) saturate(0%) hue-rotate(114deg) brightness(104%) contrast(106%);
-    content: url('lock-open-solid.svg');
-    height: 25px;
-    float: left;
+.welcome{
+    color: white;
 }

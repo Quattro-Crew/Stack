@@ -174,9 +174,12 @@ session_start()
             <li><a href="index2.php">Jak zacząć inwestować</a></li>
             <li><a href="index3.php">Analiza kursów</a></li>
         </ul>
-        
+
+            
         <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
-            <a href="" id="registerLink">Załóż konto</a>
+            <div class = "rejestracja">
+                <a href="" id="registerLink">Załóż konto</a>
+            </div>
         <?php endif; ?>
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
             <a class="welcome">Witaj <?php echo htmlspecialchars($_SESSION['username']);?>!</a>
@@ -202,7 +205,6 @@ session_start()
                 }
             });
         </script>
-
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const registerLink = document.getElementById('registerLink');
@@ -293,9 +295,11 @@ session_start()
                         if (password.match(/[$@#&!]+/)) {
                             strength += 1;
                         }
+
                         if (password.length < 12){
                             display.innerHTML="Minimalna liczba znaków to 12";
                         }
+
                         if (password.length > 128){
                             display.innerHTML="Maksymalna liczba znaków to 128";
                         }
@@ -323,53 +327,53 @@ session_start()
                             }
                     }
                 </script>
+
             </div>
         </div>
 
         <div class="rejestracja">
-            <div class="head">    
-                <img class="lock" src="lock-solid.svg" alt="">
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+            <div id="welcome">
+             
+                <a href="logout.php" id="logoutButton">Wyloguj się</a>
             </div>
 
-            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <div id="welcome">         
-                    <a href="logout.php" id="logoutButton">Wyloguj się</a>
-                </div>
+            <div class="login-button">
+                <?php else: ?>
+                <a href="#" id="loginLink" class="login-button">Zaloguj</a>
+                <?php endif; ?>
+            </div>
 
-                <div class="login-button">
-            <?php else: ?>
-                <a href="#" id="loginLink">Zaloguj się</a>
-            <?php endif; ?>
-        </div>
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
 
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+                    <h2>Logowanie</h2>
 
-                <span class="close" id="closeModal">&times;</span>
-                <h2>Logowanie</h2>
-
-                <form id="loginForm" action="login.php" method="post">
-                    <input id="navinput" type="text" name="username" placeholder="Login" required>
-                    <input id="navinput" type="password" name="password" placeholder="Hasło" required>
-                    <div id="recaptcha-container"></div>
+                    <form id="loginForm" action="login.php" method="post">
+                        <input id="navinput" type="text" name="username" placeholder="Login" required>
+                        <input id="navinput" type="password" name="password" placeholder="Hasło" required>
+                        <div id="recaptcha-container"></div>
                 
 
-                    <button id="navbutton" type="submit">Zaloguj się</button>
-                    <button id="navbutton" type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
-                </form>
+                        <button id="navbutton" type="submit">Zaloguj się</button>
+                        <button id="navbutton" type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
+                    </form>
 
+                </div>
             </div>
-        </div>
 
-        <div id="forgotPasswordModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeForgotPasswordModal">&times;</span>
-                <h2>Zapomniałem hasła</h2>
-                <form id="forgotPasswordForm" action="send_reset_link.php" method="post">
-                    <input id="navinput" type="email" name="email" placeholder="Adres e-mail" required>
-                    <button id="navbutton" type="submit">Wyślij link do resetowania hasła</button>
-                </form>
-            </div>
+            <div id="forgotPasswordModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeForgotPasswordModal">&times;</span>
+                    <h2>Zapomniałem hasła</h2>
+                    <form id="forgotPasswordForm" action="send_reset_link.php" method="post">
+                        <input id="navinput" type="email" name="email" placeholder="Adres e-mail" required>
+                        <button id="navbutton" type="submit">Wyślij link do resetowania hasła</button>
+                    </form>
+                </div>
+            </div>           
+
         </div>
 
         <script>
@@ -418,20 +422,21 @@ session_start()
             }
 
             <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
-                if (compareLink) {
-                    compareLink.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        mustBeLoggedInModal.style.display = 'flex';
+                    if (compareLink) {
+                        compareLink.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            mustBeLoggedInModal.style.display = 'flex';
+                        });
+                    }
+                <?php endif; ?>
+
+                if (closeMustBeLoggedInModal) {
+                    closeMustBeLoggedInModal.addEventListener('click', () => {
+                        mustBeLoggedInModal.style.display = 'none';
                     });
                 }
-            <?php endif; ?>
-
-            if (closeMustBeLoggedInModal) {
-                closeMustBeLoggedInModal.addEventListener('click', () => {
-                    mustBeLoggedInModal.style.display = 'none';
-                });
-            }
         </script>
+
     </nav>
     <div class="container">
         <div id="history" class="history"></div>
@@ -520,7 +525,7 @@ session_start()
             }
         }
     </script>
-    <script>
+    <!-- <script>
         console.log("Strona załadowana");
         
         window.addEventListener("DOMContentLoaded", () => {
@@ -529,6 +534,6 @@ session_start()
             .then(res => console.log("Bot start: ", res.status))
             .catch(err => console.error("Bot start error: ", err));
         });
-    </script>
+    </script> -->
 </body>
 </html>
