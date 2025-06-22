@@ -168,7 +168,7 @@ session_start();
 </script>
 
 <body>
- <header>
+    <header>
         <nav class="navbar">
             <div class="logo">
                 <img src="css/img/TradeDeck-Logo.png" alt="Logo">
@@ -179,7 +179,7 @@ session_start();
                 <li><a href="index3.php">Analiza kursów</a></li>
             </ul>
 
-            
+
             <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
                 <div class = "rejestracja">
                 <a href="" id="registerLink">Załóż konto</a>
@@ -195,7 +195,7 @@ session_start();
                 const passwordConfirm = document.getElementById('password_confirm').value;
 
                 const passwordPolicy = /^[A-Za-z0-9!@#$%^&* \s]{12,128}$/u;
-                
+
 
                 if (!passwordPolicy.test(password)) {
                     alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128.');
@@ -238,7 +238,7 @@ session_start();
                     <form id="registerForm" action="register.php" method="post">
                         <input type="text" name="username" placeholder="Login" required>
                         <input type="email" name="email" placeholder="Adres e-mail" required>
-                        <input type="password" name="password" placeholder="Hasło" required id="password">                   
+                        <input type="password" name="password" placeholder="Hasło" required id="password">
 
                             <label for="password">
                                 <span class="toggle-password" onclick="togglePassword()">
@@ -273,7 +273,7 @@ session_start();
                         <progress max="100" value="0" id="meter"></progress>
                         <div class="textbox">Siła hasła</div>
                         <button type="submit">Zarejestruj się</button>
-                    </form>                   
+                    </form>
 
                     <script>
                         var code = document.getElementById("password");
@@ -308,139 +308,135 @@ session_start();
                                 display.innerHTML="Maksymalna liczba znaków to 128";
                             }
 
-                        switch (strength) {
-                            case 0:
-                                strengthbar.value = 0;
-                                break;
+                            switch (strength) {
+                                case 0:
+                                    strengthbar.value = 0;
+                                    break;
 
-                            case 1:
-                                strengthbar.value = 25;
-                                break;
+                                case 1:
+                                    strengthbar.value = 25;
+                                    break;
 
-                            case 2:
-                                strengthbar.value = 50;
-                                break;
+                                case 2:
+                                    strengthbar.value = 50;
+                                    break;
 
-                            case 3:
-                                strengthbar.value = 75;
-                                break;
+                                case 3:
+                                    strengthbar.value = 75;
+                                    break;
 
-                            case 4:
-                                strengthbar.value = 100;
-                                break;
+                                case 4:
+                                    strengthbar.value = 100;
+                                    break;
                             }
                         }
-                        </script>
-
+                    </script>
                 </div>
             </div>
+            <div class="rejestracja">
+                    <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                    <div id="welcome">
 
-        <div class="rejestracja">
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                <div id="welcome">
-             
-                    <a href="logout.php" id="logoutButton">Wyloguj się</a>
+                        <a href="logout.php" id="logoutButton">Wyloguj się</a>
+                    </div>
+
+                <div class="login-button">
+                    <?php else: ?>
+                    <a href="#" id="loginLink" class="login-button">Zaloguj</a>
+                    <?php endif; ?>
                 </div>
 
-            <div class="login-button">
-                <?php else: ?>
-                <a href="#" id="loginLink" class="login-button">Zaloguj</a>
-                <?php endif; ?>
-            </div>
-
-             <div id="loginModal" class="modal">
-            <div class="modal-content">
-
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Logowanie</h2>
-
-            <form id="loginForm" action="login.php" method="post">
-                <input type="text" name="username" placeholder="Login" required>
-                <input type="password" name="password" placeholder="Hasło" required>
-                <div id="recaptcha-container"></div>
-                
-
-                <button type="submit">Zaloguj się</button>
-                <button type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
-            </form>
-
-            </div>
-            </div>
-
-            <div id="forgotPasswordModal" class="modal">
+                 <div id="loginModal" class="modal">
                 <div class="modal-content">
-                    <span class="close" id="closeForgotPasswordModal">&times;</span>
-                    <h2>Zapomniałem hasła</h2>
-                    <form id="forgotPasswordForm" action="send_reset_link.php" method="post">
-                        <input type="email" name="email" placeholder="Adres e-mail" required>
-                        <button type="submit">Wyślij link do resetowania hasła</button>
-                    </form>
+
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Logowanie</h2>
+
+                <form id="loginForm" action="login.php" method="post">
+                    <input type="text" name="username" placeholder="Login" required>
+                    <input type="password" name="password" placeholder="Hasło" required>
+                    <div id="recaptcha-container"></div>
+
+
+                    <button type="submit">Zaloguj się</button>
+                    <button type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
+                </form>
+
                 </div>
-            </div>           
+                </div>
 
-        </div>
+                <div id="forgotPasswordModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="closeForgotPasswordModal">&times;</span>
+                        <h2>Zapomniałem hasła</h2>
+                        <form id="forgotPasswordForm" action="send_reset_link.php" method="post">
+                            <input type="email" name="email" placeholder="Adres e-mail" required>
+                            <button type="submit">Wyślij link do resetowania hasła</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-        <script>
-            const loginLink = document.getElementById('loginLink');
-            const loginModal = document.getElementById('loginModal');
-            const closeModal = document.getElementById('closeModal');
-            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
-            const forgotPasswordModal = document.getElementById('forgotPasswordModal');
-            const closeForgotPasswordModal = document.getElementById('closeForgotPasswordModal');
-            const content = document.getElementById('content');
-            const welcome = document.getElementById('welcome');
-            const compareLink = document.querySelector('.shared_chart a');
-            const mustBeLoggedInModal = document.getElementById('mustBeLoggedInModal');
-            const closeMustBeLoggedInModal = document.getElementById('closeMustBeLoggedInModal');
-            
-            // Pokaż modal logowania i ukryj content
-            if (loginLink) {
-                loginLink.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    loginModal.style.display = 'flex';
-                    content.style.display = 'none';
-                });
-            }
+            <script>
+                const loginLink = document.getElementById('loginLink');
+                const loginModal = document.getElementById('loginModal');
+                const closeModal = document.getElementById('closeModal');
+                const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+                const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+                const closeForgotPasswordModal = document.getElementById('closeForgotPasswordModal');
+                const content = document.getElementById('content');
+                const welcome = document.getElementById('welcome');
+                const compareLink = document.querySelector('.shared_chart a');
+                const mustBeLoggedInModal = document.getElementById('mustBeLoggedInModal');
+                const closeMustBeLoggedInModal = document.getElementById('closeMustBeLoggedInModal');
 
-            if (forgotPasswordLink) {
-                forgotPasswordLink.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    forgotPasswordModal.style.display = 'flex';
-                    content.style.display = 'none';                   
-                });
-            }
-
-            if (closeModal) {
-                closeModal.addEventListener('click', () => {
-                    loginModal.style.display = 'none';
-                    content.style.display = 'flex';
-                });
-            }
-
-            if (closeForgotPasswordModal) {
-                closeForgotPasswordModal.addEventListener('click', () => {
-                    forgotPasswordModal.style.display = 'none';
-                    loginModal.style.display = 'none';
-                    content.style.display = 'flex';
-                });
-            }
-
-            <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
-                    if (compareLink) {
-                        compareLink.addEventListener('click', (event) => {
-                            event.preventDefault();
-                            mustBeLoggedInModal.style.display = 'flex';
-                        });
-                    }
-                <?php endif; ?>
-
-                if (closeMustBeLoggedInModal) {
-                    closeMustBeLoggedInModal.addEventListener('click', () => {
-                        mustBeLoggedInModal.style.display = 'none';
+                // Pokaż modal logowania i ukryj content
+                if (loginLink) {
+                    loginLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        loginModal.style.display = 'flex';
+                        content.style.display = 'none';
                     });
                 }
-        </script>
 
+                if (forgotPasswordLink) {
+                    forgotPasswordLink.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        forgotPasswordModal.style.display = 'flex';
+                        content.style.display = 'none';
+                    });
+                }
+
+                if (closeModal) {
+                    closeModal.addEventListener('click', () => {
+                        loginModal.style.display = 'none';
+                        content.style.display = 'flex';
+                    });
+                }
+
+                if (closeForgotPasswordModal) {
+                    closeForgotPasswordModal.addEventListener('click', () => {
+                        forgotPasswordModal.style.display = 'none';
+                        loginModal.style.display = 'none';
+                        content.style.display = 'flex';
+                    });
+                }
+
+                <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+                        if (compareLink) {
+                            compareLink.addEventListener('click', (event) => {
+                                event.preventDefault();
+                                mustBeLoggedInModal.style.display = 'flex';
+                            });
+                        }
+                    <?php endif; ?>
+
+                    if (closeMustBeLoggedInModal) {
+                        closeMustBeLoggedInModal.addEventListener('click', () => {
+                            mustBeLoggedInModal.style.display = 'none';
+                        });
+                    }
+            </script>
         </nav>
 
         <div class="hero">
@@ -453,32 +449,32 @@ session_start();
         </div>
     </header>
 
-<div class="container">
-    <section class="about-us">
-      <h2 class="about-us-text">O nas</h2>
-        <div class="line"></div>
-      <div class="about-us-content">
-          <div class="about-us-description">
-             <p><strong>Witaj na TradeDeck!</strong><br>Twoje miejsce do nauki i rozwoju inwestycyjnego.</p>
-              <div class="about-us-text-content">
-                <p>Z TradeDeck zyskujesz:</p>
-                <ul>
-                  <li><img class="about-us-icons" src="css/img/brain.svg">  Wiedzę i praktyczne narzędzia</li>
-                  <li><img class="about-us-icons" src="css/img/chart.svg">  Lepsze decyzje inwestycyjne</li>
-                  <li><img class="about-us-icons" src="css/img/hand.svg">  Wsparcie na każdym etapie</li>
-                </ul>
-                <p>Dla początkujących i doświadczonych. Inwestuj pewnie!</p>
+    <div class="container">
+        <section class="about-us">
+          <h2 class="about-us-text">O nas</h2>
+            <div class="line"></div>
+          <div class="about-us-content">
+              <div class="about-us-description">
+                 <p><strong>Witaj na TradeDeck!</strong><br>Twoje miejsce do nauki i rozwoju inwestycyjnego.</p>
+                  <div class="about-us-text-content">
+                    <p>Z TradeDeck zyskujesz:</p>
+                    <ul>
+                      <li><img class="about-us-icons" src="css/img/brain.svg">  Wiedzę i praktyczne narzędzia</li>
+                      <li><img class="about-us-icons" src="css/img/chart.svg">  Lepsze decyzje inwestycyjne</li>
+                      <li><img class="about-us-icons" src="css/img/hand.svg">  Wsparcie na każdym etapie</li>
+                    </ul>
+                    <p>Dla początkujących i doświadczonych. Inwestuj pewnie!</p>
+                  </div>
+            </div>
+              <div class="about-us-img">
+                  <img src="css/img/about-us-img.png" alt="O nas">
               </div>
-        </div>
-          <div class="about-us-img">
-              <img src="css/img/about-us-img.png" alt="O nas">
           </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="dark-section">
+        <section class="dark-section">
             <h2>Dlaczego my?</h2>
-        <div class="line"></div>
+            <div class="line"></div>
             <span>
                 <br>
                 <br>
@@ -496,43 +492,41 @@ session_start();
                 <br>
                 <br>
             </span>
-            <!-- Tutaj można dodać treść -->
-    </section>
+        </section>
 
-    <section class="tools">
-        <h2>Nasze narzędzia</h2>
-        <div class="line"></div>
-        <div class="cards">
-            <div class="card">
-                <div class="card-top">
-                    <span>Artykuły<br>edukacyjne</span>
+        <section class="tools">
+            <h2>Nasze narzędzia</h2>
+            <div class="line"></div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-top">
+                        <span>Artykuły<br>edukacyjne</span>
+                    </div>
+                    <div class="card-bottom">
+                        <span>bottom</span>
+                    </div>
                 </div>
-                <div class="card-bottom">
-                    <span>bottom</span>
+
+                <div class="card">
+                    <div class="card-top2">
+                        <span>Fiszki słownika<br>giełdy</span>
+                    </div>
+                    <div class="card-bottom2">
+                        <span>bottom</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-top">
+                        <span>Symulator<br>giełdy</span>
+                    </div>
+                    <div class="card-bottom">
+                        <span>bottom</span>
+                    </div>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-top2">
-                    <span>Fiszki słownika<br>giełdy</span>
-                </div>
-                <div class="card-bottom2">
-                    <span>bottom</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-top">
-                    <span>Symulator<br>giełdy</span>
-                </div>
-                <div class="card-bottom">
-                    <span>bottom</span>
-                </div>
-            </div>
-        </div>
-
-    </section>
-</div>
+        </section>
+    </div>
 
    <div class="footer1">
         <h1>Przydatne informacje</h1>
