@@ -503,8 +503,8 @@ session_start();
     </div>
 </div>
 
-<div id="myModal" class="modal">
-    <div class="modal-content">
+<div id="myModal" class="modal-flashcards">
+    <div class="modal-flashcards-content">
         <span class="close">&times;</span>
         <h2>Rozpocznij Nauke!</h2>
 
@@ -525,107 +525,121 @@ session_start();
     </div>
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".sub-card");
+ <script>
+     document.addEventListener("DOMContentLoaded", () => {
+         const cards = document.querySelectorAll(".sub-card");
 
-        cards.forEach(card => {
-            const title = card.querySelector(".card__title");
+         cards.forEach(card => {
+             const title = card.querySelector(".card__title");
 
-            card.addEventListener("mouseenter", () => {
-                title.textContent = "Zaczynajmy! ;)";
-                title.classList.add("highlight-text");
-            });
+             card.addEventListener("mouseenter", () => {
+                 title.textContent = "Zaczynajmy! ;)";
+                 title.classList.add("highlight-text");
+             });
 
-            card.addEventListener("mouseleave", () => {
-                title.textContent = "10 POJĘĆ";
-                title.classList.remove("highlight-text");
-            });
-        });
+             card.addEventListener("mouseleave", () => {
+                 title.textContent = "10 POJĘĆ";
+                 title.classList.remove("highlight-text");
+             });
+         });
 
-        const modal = document.getElementById("myModal");
-        const closeBtn = modal.querySelector(".close");
-        const flipCard = document.querySelector('.flip-card');
+         const modal = document.getElementById("myModal");
+         const closeBtn = modal.querySelector(".close");
+         const flipCard = document.querySelector(".flip-card");
+         const pojecie = document.getElementById("pojecie");
+         const definicja = document.getElementById("definicja");
+         const nextBtn = document.getElementById("nextBtn");
+         const nextBtnFalse = document.getElementById("nextBtn-false");
 
-        function loadFiszki(level = 1) {
-            // USUŃ poprzednie klasy level-X
-            modal.classList.remove("level-1", "level-2", "level-3", "level-4");
-            flipCard.classList.remove("level-1", "level-2", "level-3", "level-4");
+         let data = [];
+         let index = 0;
+         let isFlipped = false;
 
-            // DODAJ aktualną klasę level-X
-            modal.classList.add(`level-${level}`);
-            flipCard.classList.add(`level-${level}`);
+         function showFront(i) {
+             pojecie.textContent = data[i].nazwa;
+             definicja.textContent = "";
+             flipCard.classList.remove("flipped");
+             isFlipped = false;
+             nextBtn.disabled = true;
+             nextBtnFalse.disabled = true;
+         }
 
-            fetch(`get_fiszki.php?level=${level}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.length > 0) {
-                        let index = 0;
-                        let isFlipped = false;
+         function showBack(i) {
+             definicja.textContent = data[i].tresc;
+             flipCard.classList.add("flipped");
+             isFlipped = true;
+             nextBtn.disabled = false;
+             nextBtnFalse.disabled = false;
+         }
 
-                        const pojecie = document.getElementById("pojecie");
-                        const definicja = document.getElementById("definicja");
-                        const nextBtn = document.getElementById("nextBtn");
+         function loadFiszki(level = 1) {
+             modal.classList.remove("level-1", "level-2", "level-3", "level-4");
+             flipCard.classList.remove("level-1", "level-2", "level-3", "level-4");
 
-                        function showFront(i) {
-                            pojecie.textContent = data[i].nazwa;
-                            definicja.textContent = "";
-                            flipCard.classList.remove('flipped');
-                            isFlipped = false;
-                            nextBtn.disabled = true;
-                        }
+             modal.classList.add(`level-${level}`);
+             flipCard.classList.add(`level-${level}`);
 
-                        function showBack(i) {
-                            definicja.textContent = data[i].tresc;
-                            flipCard.classList.add('flipped');
-                            isFlipped = true;
-                            nextBtn.disabled = false;
-                        }
+             fetch(`get_fiszki.php?level=${level}`)
+                 .then(response => response.json())
+                 .then(fiszki => {
+                     if (fiszki.length > 0) {
+                         data = fiszki;
+                         index = 0;
+                         showFront(index);
+                     }
+                 });
+         }
 
-                        showFront(index);
+         // Obsługa kliknięcia karty
+         flipCard.addEventListener("click", () => {
+             if (!isFlipped && data.length > 0) {
+                 showBack(index);
+             }
+         });
 
-                        flipCard.onclick = () => {
-                            if (!isFlipped) {
-                                showBack(index);
-                            }
-                        };
+         // Obsługa przycisków
+         nextBtn.addEventListener("click", () => {
+             if (isFlipped) {
+                 index = (index + 1) % data.length;
+                 showFront(index);
+             }
+         });
 
-                        nextBtn.onclick = () => {
-                            if (isFlipped) {
-                                index = (index + 1) % data.length;
-                                showFront(index);
-                            }
-                        };
-                    }
-                });
-        }
+         nextBtnFalse.addEventListener("click", () => {
+             if (isFlipped) {
+                 // Można tu dodać logikę np. zapisu błędnych fiszek
+                 index = (index + 1) % data.length;
+                 showFront(index);
+             }
+         });
 
-        // Otwórz modal na odpowiedni poziom
-        document.getElementById("openModal")?.addEventListener("click", () => {
-            modal.style.display = "block";
-            loadFiszki(1); // poziom 1
-        });
+         // Otwarcie modala
+         document.getElementById("openModal")?.addEventListener("click", () => {
+             modal.style.display = "block";
+             loadFiszki(1);
+         });
 
-        document.querySelector(".card-intermediate")?.addEventListener("click", () => {
-            modal.style.display = "block";
-            loadFiszki(2); // poziom 2
-        });
+         document.querySelector(".card-intermediate")?.addEventListener("click", () => {
+             modal.style.display = "block";
+             loadFiszki(2);
+         });
 
-        document.querySelector(".card-advanced")?.addEventListener("click", () => {
-            modal.style.display = "block";
-            loadFiszki(3); // poziom 3
-        });
+         document.querySelector(".card-advanced")?.addEventListener("click", () => {
+             modal.style.display = "block";
+             loadFiszki(3);
+         });
 
-        document.querySelector(".card-expert")?.addEventListener("click", () => {
-            modal.style.display = "block";
-            loadFiszki(4); // poziom 4
-        });
+         document.querySelector(".card-expert")?.addEventListener("click", () => {
+             modal.style.display = "block";
+             loadFiszki(4);
+         });
 
-        closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-    });
-</script>
+         closeBtn.addEventListener("click", () => {
+             modal.style.display = "none";
+         });
+     });
+ </script>
+
 
 
 <footer>
