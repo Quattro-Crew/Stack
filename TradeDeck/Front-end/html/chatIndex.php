@@ -162,7 +162,7 @@ session_start()
                     alert('Zmiana hasła zakończona sukcesem, ale wystąpił nieoczekiwany problem.');
             }
         }
-    })         
+    });
 </script>
 <body>
     <nav class="navbar">
@@ -234,7 +234,7 @@ session_start()
                 <form id="registerForm" action="register.php" method="post">
                     <input id="navinput" type="text" name="username" placeholder="Login" required>
                     <input id="navinput" type="email" name="email" placeholder="Adres e-mail" required>
-                    <input id="navinput" type="password" name="password" placeholder="Hasło" required id="password">                   
+                    <input id="navinput" type="password" name="password" placeholder="Hasło" required id="password">
 
                     <label for="password">
                         <span class="toggle-password" onclick="togglePassword()">
@@ -372,8 +372,7 @@ session_start()
                         <button id="navbutton" type="submit">Wyślij link do resetowania hasła</button>
                     </form>
                 </div>
-            </div>           
-
+            </div>
         </div>
 
         <script>
@@ -402,7 +401,7 @@ session_start()
                 forgotPasswordLink.addEventListener('click', (event) => {
                     event.preventDefault();
                     forgotPasswordModal.style.display = 'flex';
-                    content.style.display = 'none';                   
+                    content.style.display = 'none';
                 });
             }
 
@@ -447,7 +446,7 @@ session_start()
             </button>
             <button onclick="sendMessage()" id="send">
                 Wyślij
-                <img src="Icons/sendIcon.svg" alt="Wyślij">
+                <img src="icons/sendIcon.svg" alt="Wyślij">
             </button>
         </div>
     </div>
@@ -509,7 +508,7 @@ session_start()
             const dark = localStorage.getItem("dark-mode") === "true";
             if (dark) {
                 document.body.classList.add("dark-mode");
-                themeIcon.src = "Icons/lightModeIcon.svg";
+                themeIcon.src = "icons/lightModeIcon.svg";
             }
         });
 
@@ -519,9 +518,9 @@ session_start()
             localStorage.setItem("dark-mode", isDark);
 
             if (isDark) {
-                themeIcon.src = "Icons/lightModeIcon.svg";
+                themeIcon.src = "icons/lightModeIcon.svg";
             } else {
-                themeIcon.src = "Icons/darkModeIcon.svg";
+                themeIcon.src = "icons/darkModeIcon.svg";
             }
         }
     </script>
