@@ -57,7 +57,7 @@ body {
     text-decoration: underline;
 }
 
-.login-button a {
+.rejestracja a {
     background-color: #759686;
     color: #1a3030;
     padding: 8px 16px;
@@ -67,7 +67,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.login-button a:hover {
+.rejestracja a:hover {
     background-color: #61aa93;
 }
 
@@ -133,60 +133,11 @@ button:hover {
 #registerLink{
     margin-left: 80px; 
 }
-.rejestruj a{
-font-size: 17px;
-text-decoration: none;
-color: white;
-}
-.rejestruj a:hover{
-    text-decoration: underline 1.5px solid rgb(131, 200, 215);
+
+.welcome{
+    color: white;
 }
 
-.rejestracja{
-    height: 39px;
-    background-color: rgb(241, 239, 239);
-    width: 135px;
-    margin-left: 174vh;
-    margin-top: 16px;
-    position: absolute;
-    border-radius: 5px 5px 5px 5px;
-    padding-top: 7.5px;
-    border: 1px gray solid;
-    
-
-}
-.rejestracja:hover{
-    background-color: #777777;
-}
-
-.rejestracja:hover a{
-    color: rgb(241, 239, 239);
-}
-
-.rejestracja a{
-    font-size: 18px;
-    padding-left: 8px;
-    text-decoration: none;
-    color: rgb(62, 132, 148);
-    float: left;
-    
-    
-}
-
-.lock{
-    height: 25px;
-    padding-left: 5px;
-    padding-bottom: 3px;
-    float: left;
-    filter: invert(552%) sepia(53%) saturate(20%) hue-rotate(68deg) brightness(20%) contrast(9%);
-}
-
-.rejestracja:hover .lock{
-    filter: invert(95%) sepia(100%) saturate(0%) hue-rotate(114deg) brightness(104%) contrast(106%);
-    content: url('lock-open-solid.svg');
-    height: 25px;
-    float: left;
-}
 
 /* ================================
    HERO SECTION

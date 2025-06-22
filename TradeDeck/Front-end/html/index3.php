@@ -11,12 +11,12 @@ session_start();
 ?>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // rejestracja
-        const urlParams = new URLSearchParams(window.location.search);
-        const registerError = urlParams.get('register_error');
+        document.addEventListener('DOMContentLoaded', function () {
+            // rejestracja
+            const urlParams = new URLSearchParams(window.location.search);
+            const registerError = urlParams.get('register_error');
 
-        if (registerError) {
+            if (registerError) {
             switch (registerError) {
                 case 'empty':
                     alert('Wszystkie pola są wymagane przy rejestracji!');
@@ -47,127 +47,127 @@ session_start();
         // logowanie
         const loginerror = urlParams.get('login_error');
 
-        if (loginerror) {
-            switch (loginerror) {
-                case 'empty':
-                    alert('Wszystkie pola są wymagane!');
-                    break;
-                case 'invalid':
-                    alert('Niepoprawna nazwa użytkownika lub hasło.');
-                    break;
-                case 'server':
-                    alert('Wystąpił błąd serwera. Spróbuj ponownie później.');
-                    break;
-                case 'invalid_request':
-                    alert('Nieprawidłowe żądanie.');
-                    break;
-                default:
-                    alert('Wystąpił nieznany błąd.');
+            if (loginerror) {
+                switch (loginerror) {
+                    case 'empty':
+                        alert('Wszystkie pola są wymagane!');
+                        break;
+                    case 'invalid':
+                        alert('Niepoprawna nazwa użytkownika lub hasło.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera. Spróbuj ponownie później.');
+                        break;
+                    case 'invalid_request':
+                        alert('Nieprawidłowe żądanie.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd.');
+                }
             }
-        }
 
-        const resetError = urlParams.get('error');
-        const resetSuccess = urlParams.get('success');
+            const resetError = urlParams.get('error');
+            const resetSuccess = urlParams.get('success');
 
-        if (resetError) {
-            switch (resetError) {
-                case 'invalid_email':
-                    alert('Niepoprawny adres E-mail. Proszę wprowadzić poprawny adres.');
-                    break;
-                case 'email_not_found':
-                    alert('Podany adres E-mail nie istnieje w naszej bazie danych.');
-                    break;
-                case 'server':
-                    alert('Wystąpił błąd serwera. Spróbuj ponownie później.');
-                    break;
-                case 'invalid_request':
-                    alert('Nieprawidłowe żądanie. Spróbuj ponownie.');
-                    break;
-                default:
-                    alert('Wystąpił nieznany błąd podczas próby wysłania linku do resetowania hasła.');
+            if (resetError) {
+                switch (resetError) {
+                    case 'invalid_email':
+                        alert('Niepoprawny adres E-mail. Proszę wprowadzić poprawny adres.');
+                        break;
+                    case 'email_not_found':
+                        alert('Podany adres E-mail nie istnieje w naszej bazie danych.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera. Spróbuj ponownie później.');
+                        break;
+                    case 'invalid_request':
+                        alert('Nieprawidłowe żądanie. Spróbuj ponownie.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd podczas próby wysłania linku do resetowania hasła.');
+                }
             }
-        }
 
-        if (resetSuccess) {
-            switch (resetSuccess) {
-                case 'reset_link_sent':
-                    alert('Link do resetowania hasła został wysłany na Twój adres e-mail.');
-                    break;
-                default:
-                    alert('Wysłanie linku zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
+            if (resetSuccess) {
+                switch (resetSuccess) {
+                    case 'reset_link_sent':
+                        alert('Link do resetowania hasła został wysłany na Twój adres e-mail.');
+                        break;
+                    default:
+                        alert('Wysłanie linku zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
+                }
             }
-        }
-        const resetPasswordError = urlParams.get('error');
-        const resetPasswordSuccess = urlParams.get('success');
+            const resetPasswordError = urlParams.get('error');
+            const resetPasswordSuccess = urlParams.get('success');
 
-        if (resetPasswordError) {
-            switch (resetPasswordError) {
-                case 'password_mismatch':
-                    alert('Hasła nie są zgodne. Wpisz ponownie.');
-                    break;
-                case 'weak_password':
-                    alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128 znaków.');
-                    break;
-                case 'invalid_token':
-                    alert('Link do resetowania hasła jest nieprawidłowy lub wygasł.');
-                    break;
-                case 'server':
-                    alert('Wystąpił błąd serwera podczas resetowania hasła. Spróbuj ponownie później.');
-                    break;
-                case 'invalid_request':
-                    alert('Nieprawidłowe żądanie resetowania hasła.');
-                    break;
-                default:
-                    alert('Wystąpił nieznany błąd podczas resetowania hasła.');
+            if (resetPasswordError) {
+                switch (resetPasswordError) {
+                    case 'password_mismatch':
+                        alert('Hasła nie są zgodne. Wpisz ponownie.');
+                        break;
+                    case 'weak_password':
+                        alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128 znaków.');
+                        break;
+                    case 'invalid_token':
+                        alert('Link do resetowania hasła jest nieprawidłowy lub wygasł.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera podczas resetowania hasła. Spróbuj ponownie później.');
+                        break;
+                    case 'invalid_request':
+                        alert('Nieprawidłowe żądanie resetowania hasła.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd podczas resetowania hasła.');
+                }
             }
-        }
 
-        if (resetPasswordSuccess) {
-            switch (resetPasswordSuccess) {
-                case 'password_reset':
-                    alert('Hasło zostało pomyślnie zresetowane! Możesz teraz się zalogować.');
-                    break;
-                default:
-                    alert('Resetowanie hasła zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
+            if (resetPasswordSuccess) {
+                switch (resetPasswordSuccess) {
+                    case 'password_reset':
+                        alert('Hasło zostało pomyślnie zresetowane! Możesz teraz się zalogować.');
+                        break;
+                    default:
+                        alert('Resetowanie hasła zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
+                }
             }
-        }
 
-        const changePasswordError = urlParams.get('error');
-        const changePasswordSuccess = urlParams.get('success');
+            const changePasswordError = urlParams.get('error');
+            const changePasswordSuccess = urlParams.get('success');
 
-        if (changePasswordError) {
-            switch (changePasswordError) {
-                case 'password_mismatch':
-                    alert('Nowe hasła nie są zgodne. Wpisz ponownie.');
-                    break;
-                case 'weak_password':
-                    alert('Nowe hasło musi mieć co najmniej 12 znaków i maksymalnie 128 znaków.');
-                    break;
-                case 'incorrect_old_password':
-                    alert('Podane stare hasło jest nieprawidłowe.');
-                    break;
-                case 'server':
-                    alert('Wystąpił błąd serwera podczas zmiany hasła. Spróbuj ponownie później.');
-                    break;
-                default:
-                    alert('Wystąpił nieznany błąd podczas zmiany hasła.');
+            if (changePasswordError) {
+                switch (changePasswordError) {
+                    case 'password_mismatch':
+                        alert('Nowe hasła nie są zgodne. Wpisz ponownie.');
+                        break;
+                    case 'weak_password':
+                        alert('Nowe hasło musi mieć co najmniej 12 znaków i maksymalnie 128 znaków.');
+                        break;
+                    case 'incorrect_old_password':
+                        alert('Podane stare hasło jest nieprawidłowe.');
+                        break;
+                    case 'server':
+                        alert('Wystąpił błąd serwera podczas zmiany hasła. Spróbuj ponownie później.');
+                        break;
+                    default:
+                        alert('Wystąpił nieznany błąd podczas zmiany hasła.');
+                }
             }
-        }
 
-        if (changePasswordSuccess) {
-            switch (changePasswordSuccess) {
-                case 'password_changed':
-                    alert('Hasło zostało pomyślnie zmienione!');
-                    break;
-                default:
-                    alert('Zmiana hasła zakończona sukcesem, ale wystąpił nieoczekiwany problem.');
+            if (changePasswordSuccess) {
+                switch (changePasswordSuccess) {
+                    case 'password_changed':
+                        alert('Hasło zostało pomyślnie zmienione!');
+                        break;
+                    default:
+                        alert('Zmiana hasła zakończona sukcesem, ale wystąpił nieoczekiwany problem.');
+                }
             }
-        }
-    })         
+        })         
 </script>
 
 <body>
-    <header>
+ <header>
         <nav class="navbar">
             <div class="logo">
                 <img src="css/img/TradeDeck-Logo.png" alt="Logo">
@@ -177,9 +177,12 @@ session_start();
                 <li><a href="index2.php">Jak zacząć inwestować</a></li>
                 <li><a href="index3.php">Analiza kursów</a></li>
             </ul>
-        
+
+            
             <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+                <div class = "rejestracja">
                 <a href="" id="registerLink">Załóż konto</a>
+                </div>
             <?php endif; ?>
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <a class="welcome">Witaj <?php echo htmlspecialchars($_SESSION['username']);?>!</a>
@@ -187,48 +190,47 @@ session_start();
 
             <script>
                 document.getElementById('registerForm').addEventListener('submit', function (e) {
-                    const password = document.getElementById('password').value;
-                    const passwordConfirm = document.getElementById('password_confirm').value;
+                const password = document.getElementById('password').value;
+                const passwordConfirm = document.getElementById('password_confirm').value;
 
-                    const passwordPolicy = /^[A-Za-z0-9!@#$%^&* \s]{12,128}$/u;
+                const passwordPolicy = /^[A-Za-z0-9!@#$%^&* \s]{12,128}$/u;
                 
 
-                    if (!passwordPolicy.test(password)) {
-                        alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128.');
-                        e.preventDefault();
-                        return;
-                    }
+                if (!passwordPolicy.test(password)) {
+                    alert('Hasło musi mieć co najmniej 12 znaków i maksymalnie 128.');
+                    e.preventDefault();
+                    return;
+                }
 
-                    if (password !== passwordConfirm) {
-                        alert('Hasła nie są zgodne. Wpisz ponownie.');
-                        e.preventDefault();
-                    }
+                if (password !== passwordConfirm) {
+                    alert('Hasła nie są zgodne. Wpisz ponownie.');
+                    e.preventDefault();
+                }
                 });
             </script>
-
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
-                    const registerLink = document.getElementById('registerLink');
-                    const registerModal = document.getElementById('registerModal');
-                    const closeRegisterModal = document.getElementById('closeRegisterModal');
-                    const content = document.getElementById('content');
+                const registerLink = document.getElementById('registerLink');
+                const registerModal = document.getElementById('registerModal');
+                const closeRegisterModal = document.getElementById('closeRegisterModal');
+                const content = document.getElementById('content');
 
-                    registerLink.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        registerModal.style.display = 'flex';
-                        content.style.display = 'none';
+                registerLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    registerModal.style.display = 'flex';
+                    content.style.display = 'none';
+                });
+
+                if (closeRegisterModal) {
+                    closeRegisterModal.addEventListener('click', () => {
+                        registerModal.style.display = 'none';
+                        content.style.display = 'flex';
                     });
-
-                    if (closeRegisterModal) {
-                        closeRegisterModal.addEventListener('click', () => {
-                            registerModal.style.display = 'none';
-                            content.style.display = 'flex';
-                        });
-                    }
+                }
                 });
             </script>
 
-            <div id="registerModal" class="modal">
+             <div id="registerModal" class="modal">
                 <div class="modal-content">
                     <span class="close" id="closeRegisterModal">&times;</span>
                     <h2>Rejestracja</h2>
@@ -237,32 +239,32 @@ session_start();
                         <input type="email" name="email" placeholder="Adres e-mail" required>
                         <input type="password" name="password" placeholder="Hasło" required id="password">                   
 
-                        <label for="password">
-                            <span class="toggle-password" onclick="togglePassword()">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-                        </label>
+                            <label for="password">
+                                <span class="toggle-password" onclick="togglePassword()">
+                                    <i class="fa-solid fa-eye"></i>
+                                </span>
+                            </label>
 
                         <script>
                             function togglePassword() {
-                                const passwordField = document.getElementById("password");
-                                const type = passwordField.type === "password" ? "text" : "password";
-                                passwordField.type = type;
+                            const passwordField = document.getElementById("password");
+                            const type = passwordField.type === "password" ? "text" : "password";
+                            passwordField.type = type;
                             }
                         </script>
 
                         <input type="password" name="password_confirm" placeholder="Powtórz hasło" required id="password_confirm">
-                        <label for="password_confirm">
-                            <span class="toggle-confirm_password" onclick="togglePasswordConfirm()">
-                                <i class="fa-solid fa-eye"></i>
-                            </span>
-                        </label>
+                            <label for="password_confirm">
+                                <span class="toggle-confirm_password" onclick="togglePasswordConfirm()">
+                                    <i class="fa-solid fa-eye"></i>
+                                </span>
+                            </label>
 
                         <script>
                             function togglePasswordConfirm() {
-                                const passwordField = document.getElementById("password_confirm");
-                                const type = passwordField.type === "password" ? "text" : "password";
-                                passwordField.type = type;
+                            const passwordField = document.getElementById("password_confirm");
+                            const type = passwordField.type === "password" ? "text" : "password";
+                            passwordField.type = type;
                             }
                         </script>
 
@@ -305,66 +307,63 @@ session_start();
                                 display.innerHTML="Maksymalna liczba znaków to 128";
                             }
 
-                            switch (strength) {
-                                case 0:
-                                    strengthbar.value = 0;
-                                    break;
+                        switch (strength) {
+                            case 0:
+                                strengthbar.value = 0;
+                                break;
 
-                                case 1:
-                                    strengthbar.value = 25;
-                                    break;
+                            case 1:
+                                strengthbar.value = 25;
+                                break;
 
-                                case 2:
-                                    strengthbar.value = 50;
-                                    break;
+                            case 2:
+                                strengthbar.value = 50;
+                                break;
 
-                                case 3:
-                                    strengthbar.value = 75;
-                                    break;
+                            case 3:
+                                strengthbar.value = 75;
+                                break;
 
-                                case 4:
-                                    strengthbar.value = 100;
-                                    break;
-                                }
+                            case 4:
+                                strengthbar.value = 100;
+                                break;
                             }
-                    </script>
+                        }
+                        </script>
+
                 </div>
             </div>
 
-            <div class="rejestracja">
-                <div class="head">    
-                    <img class="lock" src="lock-solid.svg" alt="">
+        <div class="rejestracja">
+                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <div id="welcome">
+             
+                    <a href="logout.php" id="logoutButton">Wyloguj się</a>
                 </div>
 
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <div id="welcome">
-             
-                        <a href="logout.php" id="logoutButton">Wyloguj się</a>
-                    </div>
-
-                    <div class="login-button">
+            <div class="login-button">
                 <?php else: ?>
-                    <a href="#" id="loginLink">Zaloguj się</a>
+                <a href="#" id="loginLink" class="login-button">Zaloguj</a>
                 <?php endif; ?>
             </div>
 
-            <div id="loginModal" class="modal">
-                <div class="modal-content">
+             <div id="loginModal" class="modal">
+            <div class="modal-content">
 
-                    <span class="close" id="closeModal">&times;</span>
-                    <h2>Logowanie</h2>
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Logowanie</h2>
 
-                    <form id="loginForm" action="login.php" method="post">
-                        <input type="text" name="username" placeholder="Login" required>
-                        <input type="password" name="password" placeholder="Hasło" required>
-                        <div id="recaptcha-container"></div>
+            <form id="loginForm" action="login.php" method="post">
+                <input type="text" name="username" placeholder="Login" required>
+                <input type="password" name="password" placeholder="Hasło" required>
+                <div id="recaptcha-container"></div>
                 
 
-                        <button type="submit">Zaloguj się</button>
-                        <button type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
-                    </form>
+                <button type="submit">Zaloguj się</button>
+                <button type="button" id="forgotPasswordLink">Zapomniałem Hasła</button>
+            </form>
 
-                </div>
+            </div>
             </div>
 
             <div id="forgotPasswordModal" class="modal">
@@ -376,54 +375,56 @@ session_start();
                         <button type="submit">Wyślij link do resetowania hasła</button>
                     </form>
                 </div>
-            </div>
+            </div>           
 
-            <script>
-                const loginLink = document.getElementById('loginLink');
-                const loginModal = document.getElementById('loginModal');
-                const closeModal = document.getElementById('closeModal');
-                const forgotPasswordLink = document.getElementById('forgotPasswordLink');
-                const forgotPasswordModal = document.getElementById('forgotPasswordModal');
-                const closeForgotPasswordModal = document.getElementById('closeForgotPasswordModal');
-                const content = document.getElementById('content');
-                const welcome = document.getElementById('welcome');
-                const compareLink = document.querySelector('.shared_chart a');
-                const mustBeLoggedInModal = document.getElementById('mustBeLoggedInModal');
-                const closeMustBeLoggedInModal = document.getElementById('closeMustBeLoggedInModal');
+        </div>
+
+        <script>
+            const loginLink = document.getElementById('loginLink');
+            const loginModal = document.getElementById('loginModal');
+            const closeModal = document.getElementById('closeModal');
+            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+            const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+            const closeForgotPasswordModal = document.getElementById('closeForgotPasswordModal');
+            const content = document.getElementById('content');
+            const welcome = document.getElementById('welcome');
+            const compareLink = document.querySelector('.shared_chart a');
+            const mustBeLoggedInModal = document.getElementById('mustBeLoggedInModal');
+            const closeMustBeLoggedInModal = document.getElementById('closeMustBeLoggedInModal');
             
-                // Pokaż modal logowania i ukryj content
-                if (loginLink) {
-                    loginLink.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        loginModal.style.display = 'flex';
-                        content.style.display = 'none';
-                    });
-                }
+            // Pokaż modal logowania i ukryj content
+            if (loginLink) {
+                loginLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    loginModal.style.display = 'flex';
+                    content.style.display = 'none';
+                });
+            }
 
-                if (forgotPasswordLink) {
-                    forgotPasswordLink.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        forgotPasswordModal.style.display = 'flex';
-                        content.style.display = 'none';                   
-                    });
-                }
+            if (forgotPasswordLink) {
+                forgotPasswordLink.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    forgotPasswordModal.style.display = 'flex';
+                    content.style.display = 'none';                   
+                });
+            }
 
-                if (closeModal) {
-                    closeModal.addEventListener('click', () => {
-                        loginModal.style.display = 'none';
-                        content.style.display = 'flex';
-                    });
-                }
+            if (closeModal) {
+                closeModal.addEventListener('click', () => {
+                    loginModal.style.display = 'none';
+                    content.style.display = 'flex';
+                });
+            }
 
-                if (closeForgotPasswordModal) {
-                    closeForgotPasswordModal.addEventListener('click', () => {
-                        forgotPasswordModal.style.display = 'none';
-                        loginModal.style.display = 'none';
-                        content.style.display = 'flex';
-                    });
-                }
+            if (closeForgotPasswordModal) {
+                closeForgotPasswordModal.addEventListener('click', () => {
+                    forgotPasswordModal.style.display = 'none';
+                    loginModal.style.display = 'none';
+                    content.style.display = 'flex';
+                });
+            }
 
-                <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+            <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
                     if (compareLink) {
                         compareLink.addEventListener('click', (event) => {
                             event.preventDefault();
@@ -437,185 +438,193 @@ session_start();
                         mustBeLoggedInModal.style.display = 'none';
                     });
                 }
-            </script>
+        </script>
+
         </nav>
 
         <div class="hero">
             <div class="hero-overlay">
-                <h1 class="hero-text">Zobacz dzisiejsze<br>kursy</h1>
-                <h5 class="hero-text2">Dzięki naszym narzędziom możesz,<br>prosto i łatwo,<br>przeanalizować kusy z różnych źródeł.</h5>
+                <h1 class="hero-text">Zacznij inwestować
+                    <br>dzięki TradeDeck</h1>
+                <h5 class="hero-text2" >U nas znajdziesz artykuły edukacyjne,
+                    <br>fiszki słownika giełdy oraz wiele więcej</h5>
             </div>
         </div>
     </header>
 
-    <div class="container">
+<div class="container">
 
-        <div class="stock">
+<div class="stock">
             <h2>Dane surowców pobrane z :</h2><br>
             <a href="https://notowania.pb.pl/commodities/">https://notowania.pb.pl/commodities/</a>
-            <?php
-                $url = 'https://notowania.pb.pl/commodities/';
-                // cURL
-                $ch = curl_init($url);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                $response = curl_exec($ch);
-                curl_close($ch);
+        <?php
+        $url = 'https://notowania.pb.pl/commodities/';
+        // cURL
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
-                if ($response === false) {
-                    die('Błąd w pobieraniu danych.');
-                }
+        if ($response === false) {
+            die('Błąd w pobieraniu danych.');
+        }
 
-                $dom = new DOMDocument();
+        $dom = new DOMDocument();
 
-                libxml_use_internal_errors(true);
-                $dom->loadHTML($response);
-                libxml_clear_errors();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($response);
+        libxml_clear_errors();
 
-                $xpath = new DOMXPath($dom);
+        $xpath = new DOMXPath($dom);
 
-                $commodityXpaths = [
-                    'złoto' =>  /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[14]/td[2]',
+        $commodityXpaths = [
+            'złoto' =>  /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[14]/td[2]',
 
-                    'pszenica' => /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[32]/td[2]',
+            'pszenica' => /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[32]/td[2]',
 
-                    'aluminium' =>  /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[1]/td[2]',
+            'aluminium' =>  /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[1]/td[2]',
 
-                    'kakao'     => /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[5]/td[2]',
+            'kakao'     => /*jedn*/ '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[5]/td[2]',
 
-                    'cukier'    => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[31]/td[2]',
+            'cukier'    => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[31]/td[2]',
 
-                    'pallad'    => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[20]/td[2]'
-
-
-                ];
-
-                $rateXpaths = [
-                    'złoto' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[14]/td[3]/span',
-
-                    'pszenica' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[32]/td[3]/span',
-
-                    'aluminium' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[1]/td[3]/span',
-
-                    'kakao' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[5]/td[3]/span',
-
-                    'cukier' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[31]/td[3]/span',
-
-                    'pallad' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[20]/td[3]/span'
-
-                ];
-
-                // Dane
-                echo '<table border="1">';
-                echo '<tr><th>Surowiec</th><th>Jednostka</th><th>Cena</th></tr>';
-
-                foreach ($commodityXpaths as $commodity => $xPathCommodity) {
-                    $commodityelements = $xpath->query($xPathCommodity);
-
-                    $xPathRate = $rateXpaths[$commodity];
-                    $rateElements = $xpath->query($xPathRate);
-
-                    echo '<tr><td>'.ucfirst($commodity) . '</td>';
-
-                    echo '<td>';
-                    if ($commodityelements->length > 0) {
-                        echo $commodityelements->item(0)->nodeValue;
-                    } else {
-                        echo 'Brak danych.';
-                    }
-                    echo '</td>';
-
-                    echo '<td>';
+            'pallad'    => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[20]/td[2]'
 
 
-                    if ($rateElements->length > 0) {
-                        echo $rateElements->item(0)->nodeValue;
-                    } else {
-                        echo 'Brak danych.';
-                    }
-                    echo '</td>';
+        ];
+
+        $rateXpaths = [
+            'złoto' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[14]/td[3]/span',
+
+            'pszenica' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[32]/td[3]/span',
+
+            'aluminium' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[1]/td[3]/span',
+
+            'kakao' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[5]/td[3]/span',
+
+            'cukier' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[31]/td[3]/span',
+
+            'pallad' => '//*[@id="quotes-commodities-quotes-table-box"]/div/div/div[2]/div/table/tbody/tr[20]/td[3]/span'
+
+        ];
+
+        // Dane
+        echo '<table border="1">';
+        echo '<tr><th>Surowiec</th><th>Jednostka</th><th>Cena</th></tr>';
+
+        foreach ($commodityXpaths as $commodity => $xPathCommodity) {
+            $commodityelements = $xpath->query($xPathCommodity);
+
+            $xPathRate = $rateXpaths[$commodity];
+            $rateElements = $xpath->query($xPathRate);
+
+            echo '<tr><td>'.ucfirst($commodity) . '</td>';
+
+            echo '<td>';
+            if ($commodityelements->length > 0) {
+                echo $commodityelements->item(0)->nodeValue;
+            } else {
+                echo 'Brak danych.';
+            }
+            echo '</td>';
+
+            echo '<td>';
+
+
+        if ($rateElements->length > 0) {
+                echo $rateElements->item(0)->nodeValue;
+            } else {
+                echo 'Brak danych.';
+            }
+            echo '</td>';
             
-                    echo '</tr>';
-                }
+            echo '</tr>';
+        }
 
-                echo '</table>';
+        echo '</table>';
 
-            ?>
+        ?>
+
+         </div>
+
+
+
+</div>
+
+<footer>
+    <div class="footer1">
+        <h1>Przydatne informacje</h1>
+        <ul>
+            <li><a href="#">Kursy walut</a></li>
+            <li><a href="#">Pogoda</a></li>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#">Dieta</a></li>
+            <li><a href="#">Horoskop</a></li>
+            <li><a href="#">Oferta</a></li>
+            <li><a href="#">Powódź 2024</a></li>
+        </ul>
+    </div>
+
+    <div class="O_nas">
+        <h1>Nazwa</h1>
+        <ul>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Kariera</a></li>
+            <li><a href="#">Aktualności</a></li>
+            <li><a href="#">Biuro prasowe</a></li>
+            <li><a href="#">System partnerski</a></li>
+            <li><a href="#">Obsługa klienta</a></li>
+        </ul>
+    </div>
+
+    <div class="Pomoc">
+        <h1>Pomoc i kontakt</h1>
+        <ul>
+            <li><a href="#">Kontaktuj się online</a></li>
+            <li><a href="#">Nasza placówka</a></li>
+            <li><a href="#">Telefon: 1 9999</a></li>
+            <p>24h / 7 dni</p>
+            <li><a href="#">Pytania i odpowiedzi</a></li>
+        </ul>
+    </div>
+
+    <div class="footer2">
+        <h1>Znajdziesz nas też na</h1>
+        <img class="facb" src="icons/facebook.png" alt="Facebook">
+        <img class="facb" src="icons/instagram.png" alt="Instagram">
+        <img class="facb" src="icons/x-twitter-s.svg" alt="X">
+        <img class="facb" src="icons/youtube.png" alt="YouTube">
+
+        <div class="wersja">
+            <h2>Wersja językowa</h2>
+            <a href="#">PL</a>
+            <a href="#">EN</a>
+            <a href="#">ES</a>
         </div>
     </div>
 
-    <footer>
-        <div class="footer1">
-            <h1>Przydatne informacje</h1>
-            <ul>
-                <li><a href="#">Kursy walut</a></li>
-                <li><a href="#">Pogoda</a></li>
-                <li><a href="#">Sport</a></li>
-                <li><a href="#">Dieta</a></li>
-                <li><a href="#">Horoskop</a></li>
-                <li><a href="#">Oferta</a></li>
-                <li><a href="#">Powódź 2024</a></li>
-            </ul>
-        </div>
-
-        <div class="O_nas">
-            <h1>Nazwa</h1>
-            <ul>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Kariera</a></li>
-                <li><a href="#">Aktualności</a></li>
-                <li><a href="#">Biuro prasowe</a></li>
-                <li><a href="#">System partnerski</a></li>
-                <li><a href="#">Obsługa klienta</a></li>
-            </ul>
-        </div>
-
-        <div class="Pomoc">
-            <h1>Pomoc i kontakt</h1>
-            <ul>
-                <li><a href="#">Kontaktuj się online</a></li>
-                <li><a href="#">Nasza placówka</a></li>
-                <li><a href="#">Telefon: 1 9999</a></li>
-                <p>24h / 7 dni</p>
-                <li><a href="#">Pytania i odpowiedzi</a></li>
-            </ul>
-        </div>
-
-        <div class="footer2">
-            <h1>Znajdziesz nas też na</h1>
-            <img class="facb" src="icons/facebook.png" alt="Facebook">
-            <img class="facb" src="icons/instagram.png" alt="Instagram">
-            <img class="facb" src="icons/x-twitter-s.svg" alt="X">
-            <img class="facb" src="icons/youtube.png" alt="YouTube">
-
-            <div class="wersja">
-                <h2>Wersja językowa</h2>
-                <a href="#">PL</a>
-                <a href="#">EN</a>
-                <a href="#">ES</a>
-            </div>
-        </div>
-
-        <div class="footer3">
-            <p>2024 &copy; Nazwa. Wszelkie prawa zastrzeżone. Nazwa i logo są zarejestrowanymi znakami towarowymi.</p>
-            <p>Opłata za połączenie z infolinią wiadomości zgodna z taryfą danego operatora. <br>
-                Słowniczek pojęć i definicji dotyczących usług reprezentatywnych, wynikających z rozporządzenia
-                Ministra Rozwoju i Finansów z dnia 14 lipca 2017 r. w sprawie wykazu usług reprezentatywnych
-                powiązanych z rachunkiem płatniczym, dostępny jest na stronie <br>
-                <a href="#">strona.pl/PAD</a> oraz w placówkach.</p>
-        </div>
-
-        <div class="footer4">
-            <img src="logo_stopka.png" alt="Logo stopki">
-            <a href="#">Regulamin serwisu</a>
-            <a href="#">Polityka prywatności</a>
-            <a href="#">Polityka przetwarzania danych osobowych (RODO)</a>
-            <a href="#">Polityka cookies</a>
-        </div>
-    </footer>
-
-    <div class="chatbot-button">
-        <span class="tooltip">Zapytaj nasze AI o pomoc!</span>
-        <span class="text">ChatBot</span>
+    <div class="footer3">
+        <p>2024 &copy; Nazwa. Wszelkie prawa zastrzeżone. Nazwa i logo są zarejestrowanymi znakami towarowymi.</p>
+        <p>Opłata za połączenie z infolinią wiadomości zgodna z taryfą danego operatora. <br>
+            Słowniczek pojęć i definicji dotyczących usług reprezentatywnych, wynikających z rozporządzenia
+            Ministra Rozwoju i Finansów z dnia 14 lipca 2017 r. w sprawie wykazu usług reprezentatywnych
+            powiązanych z rachunkiem płatniczym, dostępny jest na stronie <br>
+            <a href="#">strona.pl/PAD</a> oraz w placówkach.</p>
     </div>
+
+    <div class="footer4">
+        <img src="logo_stopka.png" alt="Logo stopki">
+        <a href="#">Regulamin serwisu</a>
+        <a href="#">Polityka prywatności</a>
+        <a href="#">Polityka przetwarzania danych osobowych (RODO)</a>
+        <a href="#">Polityka cookies</a>
+    </div>
+</footer>
+
+<div class="chatbot-button">
+    <span class="tooltip">Zapytaj nasze AI o pomoc!</span>
+    <span class="text">ChatBot</span>
+</div>
+
 </body>
 </html>
