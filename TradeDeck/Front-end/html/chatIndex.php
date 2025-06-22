@@ -524,7 +524,7 @@ session_start()
             }
         }
     </script>
-    <!-- <script>
+    <script>
         console.log("Strona załadowana");
         
         window.addEventListener("DOMContentLoaded", () => {
@@ -533,6 +533,5 @@ session_start()
             .then(res => console.log("Bot start: ", res.status))
             .catch(err => console.error("Bot start error: ", err));
         });
-    </script> -->
+    </script>
 </body>
-</html>
