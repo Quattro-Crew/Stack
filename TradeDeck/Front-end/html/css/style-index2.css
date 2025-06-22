@@ -422,7 +422,7 @@ h3 {
    karta modalna
 =================================== */
 /* === MODAL OGÓLNY === */
-.modal {
+.modal-flashcards {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -435,21 +435,21 @@ h3 {
 }
 
 /* === MODAL NA KAŻDY POZIOM === */
-.modal.level-1 {
+.modal-flashcards.level-1 {
     background: radial-gradient(circle, #1a2e25 0%, #0f1e18 100%);
 }
-.modal.level-2 {
-    background: radial-gradient(circle, #2a1e3a 0%, #1a0f28 100%);
-}
-.modal.level-3 {
+.modal-flashcards.level-2 {
     background: radial-gradient(circle, #3a2a1e 0%, #281a0f 100%);
 }
-.modal.level-4 {
+.modal-flashcards.level-3 {
+    background: radial-gradient(circle, #2a1e3a 0%, #1a0f28 100%);
+}
+.modal-flashcards.level-4 {
     background: radial-gradient(circle, #3a1e2a 0%, #280f1a 100%);
 }
 
 /* === MODAL ZAWARTOŚĆ === */
-.modal-content {
+.modal-flashcards-content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -457,7 +457,7 @@ h3 {
     padding-top: 30px;
     height: 100%;
 }
-.modal-content h2 {
+.modal-flashcards-content h2 {
     color: #494949;
     font-size: 30px;
     background-color: #B5D7D4;
