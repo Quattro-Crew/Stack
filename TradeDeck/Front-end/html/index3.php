@@ -97,7 +97,7 @@ session_start();
                         alert('Wysłanie linku zakończone sukcesem, ale wystąpił nieoczekiwany problem.');
                 }
             }
- const resetPasswordError = urlParams.get('error');
+            const resetPasswordError = urlParams.get('error');
             const resetPasswordSuccess = urlParams.get('success');
 
             if (resetPasswordError) {
@@ -164,23 +164,25 @@ session_start();
                 }
             }
         })         
-    </script>
+</script>
 
 <body>
+ <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="css/img/TradeDeck-Logo.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="menu.php">Strona główna</a></li>
+                <li><a href="index2.php">Jak zacząć inwestować</a></li>
+                <li><a href="index3.php">Analiza kursów</a></li>
+            </ul>
 
-<header>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="css/img/TradeDeck-Logo.png" alt="Logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="menu.php">Strona główna</a></li>
-            <li><a href="index2.php">Jak zacząć inwestować</a></li>
-            <li><a href="index3.php">Analiza kursów</a></li>
-        </ul>
-        
-        <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+            
+            <?php if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true): ?>
+                <div class = "rejestracja">
                 <a href="" id="registerLink">Załóż konto</a>
+                </div>
             <?php endif; ?>
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <a class="welcome">Witaj <?php echo htmlspecialchars($_SESSION['username']);?>!</a>
@@ -206,7 +208,6 @@ session_start();
                 }
                 });
             </script>
-
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                 const registerLink = document.getElementById('registerLink');
@@ -331,13 +332,9 @@ session_start();
                         </script>
 
                 </div>
-        </div>
-
-        <div class="rejestracja">
-            <div class="head">    
-                <img class="lock" src="lock-solid.svg" alt="">
             </div>
 
+        <div class="rejestracja">
                 <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                 <div id="welcome">
              
@@ -346,7 +343,7 @@ session_start();
 
             <div class="login-button">
                 <?php else: ?>
-                <a href="#" id="loginLink">Zaloguj się</a>
+                <a href="#" id="loginLink" class="login-button">Zaloguj</a>
                 <?php endif; ?>
             </div>
 
@@ -441,17 +438,19 @@ session_start();
                         mustBeLoggedInModal.style.display = 'none';
                     });
                 }
-    </script>
+        </script>
 
-    </nav>
+        </nav>
 
-    <div class="hero">
-        <div class="hero-overlay">
-            <h1 class="hero-text">Zobacz dzisiejsze<br>kursy</h1>
-            <h5 class="hero-text2">Dzięki naszym narzędziom możesz,<br>prosto i łatwo,<br>przeanalizować kusy z różnych źródeł.</h5>
+        <div class="hero">
+            <div class="hero-overlay">
+                <h1 class="hero-text">Zacznij inwestować
+                    <br>dzięki TradeDeck</h1>
+                <h5 class="hero-text2" >U nas znajdziesz artykuły edukacyjne,
+                    <br>fiszki słownika giełdy oraz wiele więcej</h5>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
 <div class="container">
 
