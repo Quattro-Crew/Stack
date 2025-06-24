@@ -5,13 +5,13 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-model = 'SpeakLeash/bielik-4.5b-v3.0-instruct:Q8_0'
+model = 'SpeakLeash/bielik-11b-v2.3-instruct:Q6_K'
 
 personality = (
     "Masz na imię Sebastian, "
     "jesteś przyjaznym i inteligentnym asystentem giełdowym. "
     "Odpowiadaj tylko na zapytania związane z giełdą. "
-    "Inne tematy niezwiązane z giełdą cię nie interesują, nie znasz się na nich. "
+    "Nie znasz się na niczym innym niż giełda. "
     "Bądź miły i radosny. "
     "Odpowiadaj tak krótko jak to możliwe ale w sposób zrozumiały, miły i życzliwy. "
 )
