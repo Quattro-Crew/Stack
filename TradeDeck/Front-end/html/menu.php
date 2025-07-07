@@ -621,7 +621,9 @@ session_start();
         </div>
         <div class="chatbot-footer">
             <input type="text" id="userInput" placeholder="Napisz wiadomość..." />
-            <button id="sendMessage">Wyślij</button>
+            <button id="sendMessage">
+                <img src="icons/sendIcon.svg" alt="Wyślij">
+            </button>
         </div>
     </div>
     <script>
