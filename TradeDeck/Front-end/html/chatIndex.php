@@ -528,10 +528,18 @@ session_start()
         console.log("Strona załadowana");
         
         window.addEventListener("DOMContentLoaded", () => {
-            console.log("Uruchamiam bota...");
-            fetch("chatbot_start.php")
-            .then(res => console.log("Bot start: ", res.status))
-            .catch(err => console.error("Bot start error: ", err));
+            console.log("window.name =", window.name);
+
+            const fromPopup = window.name === "popup-chat";
+
+            if (!fromPopup) {
+                console.log("Uruchamiam bota...");
+                fetch("chatbot_start.php")
+                    .then(res => console.log("Bot start: ", res.status))
+                    .catch(err => console.error("Bot start error: ", err));
+            } else {
+                console.log("Wejście z popupu - pomijam inicjalizacje");
+            }
         });
     </script>
 </body>

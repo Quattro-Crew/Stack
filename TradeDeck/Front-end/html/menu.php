@@ -614,7 +614,10 @@ session_start();
     <div class="chatbot-popup" id="chatbotPopup">
         <div class="chatbot-header">
             <span>Asystent AI</span>
-            <button id="closeChatbot">&times;</button>
+            <div class="header-buttons">
+                <a href="chatIndex.php" target="popup-chat" class="open-full-chat">Otwórz w osobnej stronie</a>
+                <button id="closeChatbot">&times;</button>
+            </div>
         </div>
         <div class="chatbot-body" id="chatMessages">
             <div class="chat-message bot">Cześć! Jestem Sebastian -  w czym mogę pomóc?</div>
@@ -636,11 +639,20 @@ session_start();
             const chatMessages = document.querySelector('.chatbot-body');
 
             chatbotButton.addEventListener('click', () => {
+                chatbotButton.style.display = 'none';
                 chatbotPopup.style.display = 'flex';
+
+                void chatbotPopup.offsetWidth;
+
+                chatbotPopup.classList.add('active');
             });
 
             closeBtn.addEventListener('click', () => {
-                chatbotPopup.style.display = 'none';
+                chatbotPopup.classList.remove('active');
+                setTimeout(() => {
+                    chatbotPopup.style.display = 'none';
+                    chatbotButton.style.display = 'block';
+                }, 300);
             });
 
             sendBtn.addEventListener('click', sendMessage);

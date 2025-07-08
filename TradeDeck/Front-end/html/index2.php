@@ -712,11 +712,111 @@ session_start();
     </div>
 </footer>
 
-<div class="chatbot-button">
-    <span class="tooltip">Zapytaj nasze AI o pomoc!</span>
-    <span class="text">ChatBot</span>
-</div>
+<script>
+        console.log("Strona załadowana");
+        
+        window.addEventListener("DOMContentLoaded", () => {
+            console.log("Uruchamiam bota...");
+            fetch("chatbot_start.php")
+            .then(res => console.log("Bot start: ", res.status))
+            .catch(err => console.error("Bot start error: ", err));
+        });
+    </script>
 
+    <div class="chatbot-button">
+        <span class="tooltip">Zapytaj nasze AI o pomoc!</span>
+        <span class="text">ChatBot</span>
+    </div>
+    <div class="chatbot-popup" id="chatbotPopup">
+        <div class="chatbot-header">
+            <span>Asystent AI</span>
+            <div class="header-buttons">
+                <a href="chatIndex.php" target="popup-chat" class="open-full-chat">Otwórz w osobnej stronie</a>
+                <button id="closeChatbot">&times;</button>
+            </div>
+        </div>
+        <div class="chatbot-body" id="chatMessages">
+            <div class="chat-message bot">Cześć! Jestem Sebastian -  w czym mogę pomóc?</div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="userInput" placeholder="Napisz wiadomość..." />
+            <button id="sendMessage">
+                <img src="icons/sendIcon.svg" alt="Wyślij">
+            </button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatbotButton = document.querySelector('.chatbot-button');
+            const chatbotPopup = document.getElementById('chatbotPopup');
+            const closeBtn = document.getElementById('closeChatbot');
+            const sendBtn = document.getElementById('sendMessage');
+            const userInput = document.getElementById('userInput');
+            const chatMessages = document.querySelector('.chatbot-body');
 
+            chatbotButton.addEventListener('click', () => {
+                chatbotButton.style.display = 'none';
+                chatbotPopup.style.display = 'flex';
+
+                void chatbotPopup.offsetWidth;
+
+                chatbotPopup.classList.add('active');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                chatbotPopup.classList.remove('active');
+                setTimeout(() => {
+                    chatbotPopup.style.display = 'none';
+                    chatbotButton.style.display = 'block';
+                }, 300);
+            });
+
+            sendBtn.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+
+            function appendMessage(text, sender) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `chat-message ${sender}`;
+                msgDiv.innerText = text;
+                chatMessages.appendChild(msgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+
+                appendMessage(message, 'user');
+                userInput.value = '';
+
+                fetch('http://localhost:5000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Błąd odpowiedzi serwera.");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.reply) {
+                        appendMessage(data.reply, 'bot');
+                    } else if (data.error) {
+                        appendMessage("Błąd serwera: " + data.error, 'bot');
+                    }
+                })
+                .catch(err => {
+                    console.error("Błąd fetch:", err);
+                    appendMessage("Błąd połączenia z serwerem.", 'bot');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
