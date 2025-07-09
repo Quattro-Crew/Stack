@@ -472,23 +472,23 @@ session_start();
         <section class="dark-section">
             <h2>Dlaczego my?</h2>
             <div class="line"></div>
-            <span>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-            </span>
+            <div class="about-us-content">
+                <div class="about-us-description">
+                    <p>
+                        📚 <strong>Uczysz się we własnym tempie</strong><br>
+                        Materiały podzielone na poziomy dla początkujących i zaawansowanych – uczysz się wtedy, kiedy chcesz.<br><br>
+                        🧠 <strong>Tłumaczymy trudne rzeczy prosto</strong><br>
+                        Zrozumiałe wyjaśnienia i praktyczne przykłady zamiast skomplikowanych definicji.<br><br>
+                        📊 <strong>Pomagamy wybrać kursy</strong><br>
+                        Przejrzyste porównanie kursów i materiałów – tematy, poziomy, ceny i oceny w jednym miejscu.<br><br>
+                        💬 <strong>Chatbot na każde pytanie</strong><br>
+                        Szybkie odpowiedzi na pojęcia i strategie giełdowe – bez szukania w Google.<br><br>
+                        🔧 <strong>Konkretne narzędzia</strong><br>
+                        Fiszki, analizy i inne materiały, które realnie pomagają w nauce i praktyce.<br><br>
+                        🎯 <strong>Naszym celem jest, byś nie tylko znał teorię, ale naprawdę rozumiał giełdę i umiał działać świadomie.</strong>
+                    </p>
+                </div>
+            </div>
         </section>
 
         <section class="tools">
@@ -497,10 +497,10 @@ session_start();
             <div class="cards">
                 <div class="card">
                     <div class="card-top">
-                        <span>Artykuły<br>edukacyjne</span>
+                        <span>Analiza<br>kursów</span>
                     </div>
                     <div class="card-bottom">
-                        <span>bottom</span>
+                        <span>Przygotowaliśmy tabelę z analizą kursów i materiałów edukacyjnych o tradingu – porównujemy tematy, poziomy, ceny i formy nauki, żeby ułatwić Ci wybór najlepszego rozwiązania.</span>
                     </div>
                 </div>
 
@@ -509,16 +509,16 @@ session_start();
                         <span>Fiszki słownika<br>giełdy</span>
                     </div>
                     <div class="card-bottom2">
-                        <span>bottom</span>
+                        <span>Przygotowaliśmy zestaw praktycznych fiszek z najważniejszymi pojęciami giełdowymi. Dzięki nim łatwiej zapamiętasz trudne terminy i szybciej odnajdziesz się w świecie tradingu – idealne dla początkujących i nie tylko!</span>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-top">
-                        <span>Symulator<br>giełdy</span>
+                        <span>ChatBot<br>giełdy</span>
                     </div>
                     <div class="card-bottom">
-                        <span>bottom</span>
+                        <span>Nasz chatbot jest dostępny 24/7 i odpowiada na pytania związane z giełdą, tradingiem i pojęciami finansowymi. Szybko, prosto i bez szukania w Google.</span>
                     </div>
                 </div>
             </div>
